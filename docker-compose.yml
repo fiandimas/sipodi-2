@@ -1,0 +1,21 @@
+name: sipodi
+services:
+  db:
+    image: postgres:16
+    container_name: sipodi
+    environment:
+      POSTGRES_USER: sipodi_user
+      POSTGRES_PASSWORD: sipodi_password
+      POSTGRES_DB: sipodi_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sipodi_user -d sipodi_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

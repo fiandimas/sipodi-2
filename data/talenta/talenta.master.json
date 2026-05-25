@@ -1,0 +1,5079 @@
+[
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Islam",
+    "tags": [
+      "Guru Agama Islam Berprestasi",
+      "MTQ",
+      "Tahfidz",
+      "Moderasi Beragama",
+      "Dakwah Kreatif",
+      "DAI"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kristen",
+    "tags": [
+      "Guru Agama Kristen Berprestasi",
+      "Pendalaman Alkitab",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Katolik",
+    "tags": [
+      "Guru Agama Katolik Berprestasi",
+      "Katekese",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Hindu",
+    "tags": [
+      "Guru Agama Hindu Berprestasi",
+      "Dharma Wacana",
+      "Moderasi Beragama",
+      "Pendidikan Karakter"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Budha",
+    "tags": [
+      "Guru Agama Budha Berprestasi",
+      "Dhammadesana",
+      "Moderasi Beragama"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Konghucu",
+    "tags": [
+      "Guru Agama Konghucu Berprestasi",
+      "Pendidikan Budi Pekerti"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kepercayaan",
+    "tags": [
+      "Pendidikan Kepercayaan",
+      "Moderasi Beragama",
+      "Pelestarian Nilai Luhur"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Keagamaan Lainnya",
+    "tags": [
+      "Kegiatan Keagamaan GTK",
+      "Lintas Iman",
+      "Pembinaan Spiritual"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Akademik",
+    "category": "Science-Tech",
+    "subCategory": "Publikasi Ilmiah",
+    "tags": [
+      "Naskah Best Practice",
+      "Jurnal Penelitian",
+      "Prosiding Seminar",
+      "Artikel Ilmiah"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Akademik",
+    "category": "Akademik",
+    "subCategory": "Akademik Lainnya",
+    "tags": [
+      "Olimpiade Akademik",
+      "Karya Tulis Ilmiah",
+      "Penilaian Inovatif",
+      "Asesmen Pembelajaran"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Inovasi",
+    "category": "Science-Tech",
+    "subCategory": "Media Pembelajaran",
+    "tags": [
+      "Media Kreatif",
+      "Media Adaptif",
+      "Media Inovatif",
+      "SMA",
+      "SMK",
+      "SLB",
+      "PTK"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "Inovasi Lainnya",
+    "tags": [
+      "Riset Tindakan",
+      "Prototype Pendidikan",
+      "Solusi Pembelajaran"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Fiksi",
+    "tags": [
+      "Novel",
+      "Cerpen",
+      "Antologi Sastra"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Non Fiksi",
+    "tags": [
+      "Buku Pendidikan",
+      "Biografi",
+      "Esai Populer"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Cerita Pendek & Esai",
+    "tags": [
+      "Cerpen",
+      "Esai Literasi",
+      "Opini Pendidikan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Storytelling & Mendongeng",
+    "tags": [
+      "Storytelling",
+      "Mendongeng Anak",
+      "Literasi Lisan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Literasi Digital",
+    "tags": [
+      "Blog Pendidikan",
+      "Konten Literasi Digital"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Puisi",
+    "tags": [
+      "Puisi Bebas",
+      "Puisi Religi",
+      "Puisi Pendidikan",
+      "Apresiasi Puisi",
+      "Ekspresi Sastra",
+      "Deklamasi Puisi",
+      "Penampilan Sastra"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Bahasa & Sastra Lainnya",
+    "tags": []
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "IT & Digital",
+    "tags": [
+      "Augmented Reality (AR)",
+      "Game Edukasi",
+      "Learning Management System (LMS)",
+      "Aplikasi Pendidikan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "Teknologi Lainnya",
+    "tags": [
+      "IoT Pendidikan",
+      "AI Pembelajaran",
+      "Multimedia Interaktif"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Gitar",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gitar Akustik",
+      "Gitar Elektrik"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Bass",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Bass Elektrik"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Drum",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Drum Akustik",
+      "Drum Elektronik"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Keyboard",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Piano",
+      "Keyboard Digital",
+      "Acara Formal",
+      "Orkes Dangdut"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Tradisional",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gamelan",
+      "Angklung",
+      "Kolintang"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Lainnya",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Biola",
+      "Saxophone",
+      "Alat Musik Modern"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Menyanyi Solo",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Religi",
+      "Daerah"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Paduan Suara",
+    "tags": [
+      "Choir",
+      "Vokal Grup",
+      "Lagu Nasional",
+      "Lagu Daerah",
+      "Lagu Religi"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Tradisional",
+    "tags": [
+      "Tari Daerah",
+      "Tari Klasik",
+      "Tari Remo",
+      "Tari Kreasi Daerah"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Modern",
+    "tags": [
+      "Modern Dance",
+      "Kontemporer",
+      "Hip-Hop",
+      "Korea",
+      "Jepang"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Rupa, Desain Visual & Fashion",
+    "subCategory": "Rupa, Desain Visual & Fashion",
+    "tags": [
+      "Desain",
+      "Patung",
+      "Desain Visual",
+      "Poster",
+      "Lukis",
+      "Fotografi",
+      "Videografi",
+      "Busana Kreasi",
+      "Batik",
+      "Fashion Edukatif",
+      "Teater"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Seni",
+    "subCategory": "Seni Lainnya",
+    "tags": []
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bulu Tangkis",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Lapangan",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bola Voli",
+    "tags": [
+      "Tim Putra",
+      "Tim Putri",
+      "Setter",
+      "Spiker",
+      "Service"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Senam Kreasi",
+    "tags": [
+      "Beregu",
+      "Koreografer",
+      "Senam Aerobik"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Sepak Bola",
+    "tags": [
+      "Bek Kanan",
+      "Gelandang",
+      "Penyerang",
+      "Kiper"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Futsal",
+    "tags": [
+      "Bek",
+      "Tengah",
+      "Penyerang",
+      "Kiper"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Karate",
+    "tags": [
+      "Kata",
+      "Kumite"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Taekwondo",
+    "tags": [
+      "Kyorugi",
+      "Poomsae"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Pencak Silat",
+    "tags": [
+      "Seni Tunggal",
+      "Tanding"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Meja",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Olahraga Lainnya",
+    "tags": [
+      "Atletik",
+      "Panahan",
+      "Renang",
+      "Catur",
+      "E-Sport"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Bakti Sosial",
+    "tags": [
+      "Pengabdian Masyarakat",
+      "Relawan Pendidikan",
+      "Aksi Kemanusiaan",
+      "Bakti Sosial",
+      "Kampanye Sosial"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Literasi Sosial",
+    "tags": [
+      "Kampanye Literasi",
+      "Inklusi Sosial",
+      "Moderasi Beragama"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Sosial",
+    "category": "Sosial Lainnya",
+    "subCategory": "Kegiatan Sosial GTK, Program Komunitas, CSR Pendidikan, Pengabdian Masyarakat",
+    "tags": []
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Pengawas Sekolah",
+    "tags": [
+      "Pengawas Inspiratif",
+      "Supervisi Akademik",
+      "Transformasi Satuan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Kepala Sekolah",
+    "tags": [
+      "Kepsek Inovatif",
+      "Manajerial",
+      "Kewirausahaan Sekolah"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Guru & Tendik",
+    "tags": [
+      "Guru Impresif",
+      "Tendik Dedikatif",
+      "Agen Perubahan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Kepemimpinan Lainnya",
+    "tags": [
+      "Pemimpin Komunitas",
+      "Ketua Tim",
+      "Koordinator Program"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Produk Kreatif",
+    "tags": [
+      "Kewirausahaan Sekolah",
+      "UMKM GTK",
+      "Teaching Factory"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Jasa & Inovasi",
+    "tags": [
+      "Startup Edukasi",
+      "Jasa Pendidikan",
+      "Konsultan Pembelajaran",
+      "Inovasi Layanan"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Kewirausahaan Lainnya",
+    "tags": [
+      "Bisnis Sosial",
+      "Edupreneur",
+      "Inovasi Usaha GTK"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Penghargaan",
+    "tags": [
+      "Penghargaan Khusus",
+      "Narasumber",
+      "Juri",
+      "Mentor",
+      "Fasilitator"
+    ]
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Partisiapasi Khusus",
+    "tags": []
+  },
+  {
+    "type": "Peserta (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Lainnya",
+    "tags": [
+      "Prestasi Insidental",
+      "Aktivitas Non-Klasifikasi",
+      "Penugasan Khusus"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Islam",
+    "tags": [
+      "Guru Agama Islam Berprestasi",
+      "MTQ",
+      "Tahfidz",
+      "Moderasi Beragama",
+      "Dakwah Kreatif",
+      "DAI"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kristen",
+    "tags": [
+      "Guru Agama Kristen Berprestasi",
+      "Pendalaman Alkitab",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Katolik",
+    "tags": [
+      "Guru Agama Katolik Berprestasi",
+      "Katekese",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Hindu",
+    "tags": [
+      "Guru Agama Hindu Berprestasi",
+      "Dharma Wacana",
+      "Moderasi Beragama",
+      "Pendidikan Karakter"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Budha",
+    "tags": [
+      "Guru Agama Budha Berprestasi",
+      "Dhammadesana",
+      "Moderasi Beragama"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Konghucu",
+    "tags": [
+      "Guru Agama Konghucu Berprestasi",
+      "Pendidikan Budi Pekerti"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kepercayaan",
+    "tags": [
+      "Pendidikan Kepercayaan",
+      "Moderasi Beragama",
+      "Pelestarian Nilai Luhur"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Keagamaan Lainnya",
+    "tags": [
+      "Kegiatan Keagamaan GTK",
+      "Lintas Iman",
+      "Pembinaan Spiritual"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Akademik",
+    "category": "Science-Tech",
+    "subCategory": "Publikasi Ilmiah",
+    "tags": [
+      "Naskah Best Practice",
+      "Jurnal Penelitian",
+      "Prosiding Seminar",
+      "Artikel Ilmiah"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Akademik",
+    "category": "Akademik",
+    "subCategory": "Akademik Lainnya",
+    "tags": [
+      "Olimpiade Akademik",
+      "Karya Tulis Ilmiah",
+      "Penilaian Inovatif",
+      "Asesmen Pembelajaran"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Inovasi",
+    "category": "Science-Tech",
+    "subCategory": "Media Pembelajaran",
+    "tags": [
+      "Media Kreatif",
+      "Media Adaptif",
+      "Media Inovatif",
+      "SMA",
+      "SMK",
+      "SLB",
+      "PTK"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "Inovasi Lainnya",
+    "tags": [
+      "Riset Tindakan",
+      "Prototype Pendidikan",
+      "Solusi Pembelajaran"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Fiksi",
+    "tags": [
+      "Novel",
+      "Cerpen",
+      "Antologi Sastra"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Non Fiksi",
+    "tags": [
+      "Buku Pendidikan",
+      "Biografi",
+      "Esai Populer"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Cerita Pendek & Esai",
+    "tags": [
+      "Cerpen",
+      "Esai Literasi",
+      "Opini Pendidikan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Storytelling & Mendongeng",
+    "tags": [
+      "Storytelling",
+      "Mendongeng Anak",
+      "Literasi Lisan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Literasi Digital",
+    "tags": [
+      "Blog Pendidikan",
+      "Konten Literasi Digital"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Puisi",
+    "tags": [
+      "Puisi Bebas",
+      "Puisi Religi",
+      "Puisi Pendidikan",
+      "Apresiasi Puisi",
+      "Ekspresi Sastra",
+      "Deklamasi Puisi",
+      "Penampilan Sastra"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Bahasa & Sastra Lainnya",
+    "tags": []
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "IT & Digital",
+    "tags": [
+      "Augmented Reality (AR)",
+      "Game Edukasi",
+      "Learning Management System (LMS)",
+      "Aplikasi Pendidikan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "Teknologi Lainnya",
+    "tags": [
+      "IoT Pendidikan",
+      "AI Pembelajaran",
+      "Multimedia Interaktif"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Gitar",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gitar Akustik",
+      "Gitar Elektrik"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Bass",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Bass Elektrik"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Drum",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Drum Akustik",
+      "Drum Elektronik"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Keyboard",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Piano",
+      "Keyboard Digital",
+      "Acara Formal",
+      "Orkes Dangdut"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Tradisional",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gamelan",
+      "Angklung",
+      "Kolintang"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Lainnya",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Biola",
+      "Saxophone",
+      "Alat Musik Modern"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Menyanyi Solo",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Religi",
+      "Daerah"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Paduan Suara",
+    "tags": [
+      "Choir",
+      "Vokal Grup",
+      "Lagu Nasional",
+      "Lagu Daerah",
+      "Lagu Religi"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Tradisional",
+    "tags": [
+      "Tari Daerah",
+      "Tari Klasik",
+      "Tari Remo",
+      "Tari Kreasi Daerah"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Modern",
+    "tags": [
+      "Modern Dance",
+      "Kontemporer",
+      "Hip-Hop",
+      "Korea",
+      "Jepang"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Rupa, Desain Visual & Fashion",
+    "subCategory": "Rupa, Desain Visual & Fashion",
+    "tags": [
+      "Desain",
+      "Patung",
+      "Desain Visual",
+      "Poster",
+      "Lukis",
+      "Fotografi",
+      "Videografi",
+      "Busana Kreasi",
+      "Batik",
+      "Fashion Edukatif",
+      "Teater"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Seni",
+    "category": "Seni",
+    "subCategory": "Seni Lainnya",
+    "tags": []
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bulu Tangkis",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Lapangan",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bola Voli",
+    "tags": [
+      "Tim Putra",
+      "Tim Putri",
+      "Setter",
+      "Spiker",
+      "Service"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Senam Kreasi",
+    "tags": [
+      "Beregu",
+      "Koreografer",
+      "Senam Aerobik"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Sepak Bola",
+    "tags": [
+      "Bek Kanan",
+      "Gelandang",
+      "Penyerang",
+      "Kiper"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Futsal",
+    "tags": [
+      "Bek",
+      "Tengah",
+      "Penyerang",
+      "Kiper"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Karate",
+    "tags": [
+      "Kata",
+      "Kumite"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Taekwondo",
+    "tags": [
+      "Kyorugi",
+      "Poomsae"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Pencak Silat",
+    "tags": [
+      "Seni Tunggal",
+      "Tanding"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Meja",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Olahraga Lainnya",
+    "tags": [
+      "Atletik",
+      "Panahan",
+      "Renang",
+      "Catur",
+      "E-Sport"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Bakti Sosial",
+    "tags": [
+      "Pengabdian Masyarakat",
+      "Relawan Pendidikan",
+      "Aksi Kemanusiaan",
+      "Bakti Sosial",
+      "Kampanye Sosial"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Literasi Sosial",
+    "tags": [
+      "Kampanye Literasi",
+      "Inklusi Sosial",
+      "Moderasi Beragama"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Sosial",
+    "category": "Sosial Lainnya",
+    "subCategory": "Kegiatan Sosial GTK, Program Komunitas, CSR Pendidikan, Pengabdian Masyarakat",
+    "tags": []
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Pengawas Sekolah",
+    "tags": [
+      "Pengawas Inspiratif",
+      "Supervisi Akademik",
+      "Transformasi Satuan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Kepala Sekolah",
+    "tags": [
+      "Kepsek Inovatif",
+      "Manajerial",
+      "Kewirausahaan Sekolah"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Guru & Tendik",
+    "tags": [
+      "Guru Impresif",
+      "Tendik Dedikatif",
+      "Agen Perubahan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Kepemimpinan Lainnya",
+    "tags": [
+      "Pemimpin Komunitas",
+      "Ketua Tim",
+      "Koordinator Program"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Produk Kreatif",
+    "tags": [
+      "Kewirausahaan Sekolah",
+      "UMKM GTK",
+      "Teaching Factory"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Jasa & Inovasi",
+    "tags": [
+      "Startup Edukasi",
+      "Jasa Pendidikan",
+      "Konsultan Pembelajaran",
+      "Inovasi Layanan"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Kewirausahaan Lainnya",
+    "tags": [
+      "Bisnis Sosial",
+      "Edupreneur",
+      "Inovasi Usaha GTK"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Penghargaan",
+    "tags": [
+      "Penghargaan Khusus",
+      "Narasumber",
+      "Juri",
+      "Mentor",
+      "Fasilitator"
+    ]
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Partisiapasi Khusus",
+    "tags": []
+  },
+  {
+    "type": "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Lainnya",
+    "tags": [
+      "Prestasi Insidental",
+      "Aktivitas Non-Klasifikasi",
+      "Penugasan Khusus"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Keagamaan Islam",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3",
+      "Tilawah",
+      "Tahfidz",
+      "Tartil",
+      "Qiraat",
+      "Pembinaan MTQ",
+      "Cerdas Cermat PAI",
+      "Pendalaman Materi Islam",
+      "DAI",
+      "Hadrah",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Akademik",
+    "category": "MIPA",
+    "subCategory": "OSN Matematika",
+    "tags": [
+      "Aljabar",
+      "Geometri",
+      "Problem Solving",
+      "OSN",
+      "Akademik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "OSN Astronomi",
+    "subCategory": "Astrofisika, Observasi, OSN, Akademik, Prestasi, Tingkat Kota, Tingkat Provinsi, Tingkat Nasional",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Akademik",
+    "category": "KSN Madrasah",
+    "subCategory": "Olimpiade Madrasah, Pendalaman Materi, Aktivitas Pendidikan, Pengembangan Diri, Partisipasi, Tingkat Kota, Tingkat Provinsi, Tingkat Nasional",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "OPSI Riset Sains",
+    "tags": [
+      "Metodologi Riset",
+      "Eksperimen",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "OPSI Riset Teknologi",
+    "tags": [
+      "Prototipe",
+      "Rekayasa",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "OPSI Riset Sosial",
+    "tags": [
+      "Survei",
+      "Analisis Sosial",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "KOPSI",
+    "tags": [
+      "Penelitian Terapan",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "LKIR",
+    "tags": [
+      "Karya Ilmiah Remaja",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "GENIUS Olympiad",
+    "tags": [
+      "Riset Internasional",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "Inovasi Lainnya",
+    "tags": [
+      "Solusi Edukasi",
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "LDBI (Lomba Debat Bahasa Indonesia)",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "NSDC (Debat Bahasa Inggris)",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "OLSN Literasi Membaca",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "OLSN Menulis",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Story Telling Competition",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Speech Contest",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "LKS Billingual Secretary",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Bahasa & Sastra Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS Web Technologies",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS Cloud Computing",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS Cyber Security",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS IT Network System Administration",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS Information Network Cabling",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS IT Software Solutions for Business",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS Artificial Intelligence",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi Informasi & Digital",
+    "subCategory": "LKS Prototype Modelling",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "LKS Mobile Robotics",
+    "tags": [
+      "Pemrograman Robot",
+      "Sistem Kendali",
+      "Robot Line Follower",
+      "Robot Autonomous",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "LKS Mechatronics",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "LKS Electronics",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "LKS Industrial Control",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "LKS Robot Manufacturing System",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "Kompetisi Robotika Pelajar",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomasi, Robotik & Elektronika",
+    "subCategory": "Zero Robotics",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Manufaktur & Teknik Mesin",
+    "subCategory": "LKS CNC Milling",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Manufaktur & Teknik Mesin",
+    "subCategory": "LKS CNC Turning",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Manufaktur & Teknik Mesin",
+    "subCategory": "LKS Mechanical Engineering CAD",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Manufaktur & Teknik Mesin",
+    "subCategory": "LKS Metrology",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Manufaktur & Teknik Mesin",
+    "subCategory": "LKS Plastic Die Engineering",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Manufaktur & Teknik Mesin",
+    "subCategory": "LKS Welding",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomotif & Alat Berat",
+    "subCategory": "LKS Automobile Technology",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomotif & Alat Berat",
+    "subCategory": "LKS Motorcycle Repair and Maintenance",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomotif & Alat Berat",
+    "subCategory": "LKS Heavy Equipment",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomotif & Alat Berat",
+    "subCategory": "LKS Autobody Repair",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Otomotif & Alat Berat",
+    "subCategory": "LKS Car Painting",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Pendingin & Utilitas",
+    "subCategory": "LKS Refrigeration and Air Conditioning",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Pendingin & Utilitas",
+    "subCategory": "LKS Electrical Installation",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "Teknologi Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "FLS3N Seni Tari",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Musik & Suara",
+    "subCategory": "FLS3N Musik Tradisional",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Musik & Suara",
+    "subCategory": "FLS3N Vokal Solo",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "FLS3N Film Pendek",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "FLS3N Desain Poster",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "FLS3N Desain Grafis",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "FLS3N Fotografi",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Kriya & Tekstil",
+    "subCategory": "FLS3N Seni Kriya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Musik & Suara",
+    "subCategory": "FLS3N Cipta Lagu",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Kriya & Tekstil",
+    "subCategory": "LKS Fashion Technology",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Kriya & Tekstil",
+    "subCategory": "LKS Textile",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rias",
+    "subCategory": "LKS Hairdressing",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "Videografi",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "LKS Graphic Design Technology",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Rupa & Desain Visual",
+    "subCategory": "LKS 3D Game Art",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Seni",
+    "subCategory": "Lomba Seni Daerah",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Seni",
+    "category": "Seni",
+    "subCategory": "Seni Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Atletik",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Pencak Silat",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Renang",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Karate",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Taekwondo",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Tenis Meja",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Catur",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Sepak Bola",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Bola Voli",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "O2SN Bola Basket",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "KOSN Bulutangkis",
+    "tags": [
+      "OSN",
+      "Akademik",
+      "Prestasi",
+      "Kompetisi",
+      "Siswa",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "POPDA Atletik",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "POPNAS Cabang Olahraga Pelajar",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "PEPARNAS Pelajar (Disabilitas)",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Kompetisi Futsal",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Olahraga Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "LKS Health and Social Care",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Proyek Sosial Pelajar",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Lomba Pengabdian Masyarakat Siswa",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Duta Lingkungan Pelajar",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Proyek Sosial Inklusif SLB",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Sosial Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "OSIS Berprestasi",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Parlemen Remaja",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Pemilihan Duta Pelajar",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Model United Nations (MUN)",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Kepemimpinan Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Accounting",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Digital Marketing",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Hotel Reception",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Restaurant Service",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Tourism Industry",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "FIKSI Kewirausahaan Digital",
+    "tags": [
+      "Kewirausahaan",
+      "Bisnis",
+      "Kreatif",
+      "Inovasi",
+      "Prestasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "FIKSI Produk Kreatif",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "FIKSI Bisnis Jasa",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Business Plan Competition Pelajar (Non-FIKSI)",
+    "tags": [
+      "Kewirausahaan",
+      "Bisnis",
+      "Kreatif",
+      "Inovasi",
+      "Prestasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Student Company Competition (Internasional)",
+    "tags": [
+      "Kewirausahaan",
+      "Bisnis",
+      "Kreatif",
+      "Inovasi",
+      "Prestasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Culinary",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Patisserie and Confectionery",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "LKS Beauty Therapy",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Kewirausahaan Lainnya",
+    "tags": [
+      "Kewirausahaan",
+      "Bisnis",
+      "Kreatif",
+      "Inovasi",
+      "Prestasi",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Agronomy",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Livestock",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Fishery",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Post Harvest Technology",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Nautica",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Cabinet Making",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Bricklaying",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Wall and Floor Tiling",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "LKS Plumbing and Heating",
+    "tags": [
+      "LKS",
+      "Kejuruan",
+      "Keterampilan",
+      "Kompetisi",
+      "SMK",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Pembimbing Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Lainnya",
+    "tags": [
+      "Aktivitas Pendidikan",
+      "Pengembangan Diri",
+      "Partisipasi",
+      "Umum",
+      "Non Spesifik",
+      "Tingkat Kota",
+      "Tingkat Provinsi",
+      "Tingkat Nasional",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Islam",
+    "tags": [
+      "Gempita Awards",
+      "EJIES",
+      "Guru Agama Islam Berprestasi",
+      "MTQ",
+      "Tahfidz",
+      "Moderasi Beragama",
+      "Dakwah Kreatif",
+      "DAI",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kristen",
+    "tags": [
+      "Guru Agama Kristen Berprestasi",
+      "Pendalaman Alkitab",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Katolik",
+    "tags": [
+      "Guru Agama Katolik Berprestasi",
+      "Katekese",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Hindu",
+    "tags": [
+      "Guru Agama Hindu Berprestasi",
+      "Dharma Wacana",
+      "Moderasi Beragama",
+      "Pendidikan Karakter",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Budha",
+    "tags": [
+      "Guru Agama Budha Berprestasi",
+      "Dhammadesana",
+      "Moderasi Beragama",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Konghucu",
+    "tags": [
+      "Guru Agama Konghucu Berprestasi",
+      "Pendidikan Budi Pekerti",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kepercayaan",
+    "tags": [
+      "Pendidikan Kepercayaan",
+      "Moderasi Beragama",
+      "Pelestarian Nilai Luhur",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Keagamaan Lainnya",
+    "tags": [
+      "Kegiatan Keagamaan GTK",
+      "Lintas Iman",
+      "Pembinaan Spiritual",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Akademik",
+    "category": "Science-Tech",
+    "subCategory": "Publikasi Ilmiah",
+    "tags": [
+      "Naskah Best Practice",
+      "Jurnal Penelitian",
+      "Prosiding Seminar",
+      "Artikel Ilmiah",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Akademik",
+    "category": "Akademik",
+    "subCategory": "Akademik Lainnya",
+    "tags": [
+      "Olimpiade Akademik",
+      "Karya Tulis Ilmiah",
+      "Penilaian Inovatif",
+      "Asesmen Pembelajaran",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Inovasi",
+    "category": "Science-Tech",
+    "subCategory": "Media Pembelajaran",
+    "tags": [
+      "Media Kreatif",
+      "Media Adaptif",
+      "Media Inovatif",
+      "SMA",
+      "SMK",
+      "SLB",
+      "PTK",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "Inovasi Lainnya",
+    "tags": [
+      "Riset Tindakan",
+      "Prototype Pendidikan",
+      "Solusi Pembelajaran",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Fiksi",
+    "tags": [
+      "Novel",
+      "Cerpen",
+      "Antologi Sastra",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Non Fiksi",
+    "tags": [
+      "Buku Pendidikan",
+      "Biografi",
+      "Esai Populer",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Cerita Pendek & Esai",
+    "tags": [
+      "Cerpen",
+      "Esai Literasi",
+      "Opini Pendidikan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Storytelling & Mendongeng",
+    "tags": [
+      "Storytelling",
+      "Mendongeng Anak",
+      "Literasi Lisan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Literasi Digital",
+    "tags": [
+      "Blog Pendidikan",
+      "Konten Literasi Digital",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Puisi",
+    "tags": [
+      "Puisi Bebas",
+      "Puisi Religi",
+      "Puisi Pendidikan",
+      "Apresiasi Puisi",
+      "Ekspresi Sastra",
+      "Deklamasi Puisi",
+      "Penampilan Sastra",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Bahasa & Sastra Lainnya",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "IT & Digital",
+    "tags": [
+      "Augmented Reality (AR)",
+      "Game Edukasi",
+      "Learning Management System (LMS)",
+      "Aplikasi Pendidikan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "Teknologi Lainnya",
+    "tags": [
+      "IoT Pendidikan",
+      "AI Pembelajaran",
+      "Multimedia Interaktif",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Gitar",
+    "tags": [
+      "Gempita Awards",
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gitar Akustik",
+      "Gitar Elektrik",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Bass",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Bass Elektrik",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Drum",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Drum Akustik",
+      "Drum Elektronik",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Keyboard",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Piano",
+      "Keyboard Digital",
+      "Acara Formal",
+      "Orkes Dangdut",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Tradisional",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gamelan",
+      "Angklung",
+      "Kolintang",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Lainnya",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Biola",
+      "Saxophone",
+      "Alat Musik Modern",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Menyanyi Solo",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Religi",
+      "Daerah",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Paduan Suara",
+    "tags": [
+      "Choir",
+      "Vokal Grup",
+      "Lagu Nasional",
+      "Lagu Daerah",
+      "Lagu Religi",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Tradisional",
+    "tags": [
+      "Tari Daerah",
+      "Tari Klasik",
+      "Tari Remo",
+      "Tari Kreasi Daerah",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Modern",
+    "tags": [
+      "Modern Dance",
+      "Kontemporer",
+      "Hip-Hop",
+      "Korea",
+      "Jepang",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Rupa, Desain Visual & Fashion",
+    "subCategory": "Rupa, Desain Visual & Fashion",
+    "tags": [
+      "Desain",
+      "Patung",
+      "Desain Visual",
+      "Poster",
+      "Lukis",
+      "Fotografi",
+      "Videografi",
+      "Busana Kreasi",
+      "Batik",
+      "Fashion Edukatif",
+      "Teater",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Seni",
+    "category": "Seni",
+    "subCategory": "Seni Lainnya",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bulu Tangkis",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Lapangan",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bola Voli",
+    "tags": [
+      "Tim Putra",
+      "Tim Putri",
+      "Setter",
+      "Spiker",
+      "Service",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Senam Kreasi",
+    "tags": [
+      "Beregu",
+      "Koreografer",
+      "Senam Aerobik",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Sepak Bola",
+    "tags": [
+      "Bek Kanan",
+      "Gelandang",
+      "Penyerang",
+      "Kiper",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Futsal",
+    "tags": [
+      "Bek",
+      "Tengah",
+      "Penyerang",
+      "Kiper",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Karate",
+    "tags": [
+      "Kata",
+      "Kumite",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Taekwondo",
+    "tags": [
+      "Kyorugi",
+      "Poomsae",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Pencak Silat",
+    "tags": [
+      "Seni Tunggal",
+      "Tanding",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Meja",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Olahraga Lainnya",
+    "tags": [
+      "Atletik",
+      "Panahan",
+      "Renang",
+      "Catur",
+      "E-Sport",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Bakti Sosial",
+    "tags": [
+      "Pengabdian Masyarakat",
+      "Relawan Pendidikan",
+      "Aksi Kemanusiaan",
+      "Bakti Sosial",
+      "Kampanye Sosial",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Literasi Sosial",
+    "tags": [
+      "Kampanye Literasi",
+      "Inklusi Sosial",
+      "Moderasi Beragama",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Sosial",
+    "category": "Sosial Lainnya",
+    "subCategory": "Kegiatan Sosial GTK, Program Komunitas, CSR Pendidikan, Pengabdian Masyarakat",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Pengawas Sekolah",
+    "tags": [
+      "Pengawas Inspiratif",
+      "Supervisi Akademik",
+      "Transformasi Satuan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Kepala Sekolah",
+    "tags": [
+      "Kepsek Inovatif",
+      "Manajerial",
+      "Kewirausahaan Sekolah",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Guru & Tendik",
+    "tags": [
+      "Guru Impresif",
+      "Tendik Dedikatif",
+      "Agen Perubahan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Kepemimpinan Lainnya",
+    "tags": [
+      "Pemimpin Komunitas",
+      "Ketua Tim",
+      "Koordinator Program",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Produk Kreatif",
+    "tags": [
+      "Kewirausahaan Sekolah",
+      "UMKM GTK",
+      "Teaching Factory",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Jasa & Inovasi",
+    "tags": [
+      "Startup Edukasi",
+      "Jasa Pendidikan",
+      "Konsultan Pembelajaran",
+      "Inovasi Layanan",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Kewirausahaan Lainnya",
+    "tags": [
+      "Bisnis Sosial",
+      "Edupreneur",
+      "Inovasi Usaha GTK",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Penghargaan",
+    "tags": [
+      "Penghargaan Khusus",
+      "Narasumber",
+      "Juri",
+      "Mentor",
+      "Fasilitator",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Partisiapasi Khusus",
+    "tags": [
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Peserta Lomba",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Lainnya",
+    "tags": [
+      "Prestasi Insidental",
+      "Aktivitas Non-Klasifikasi",
+      "Penugasan Khusus",
+      "Juara 1",
+      "Juara 2",
+      "Juara 3"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Islam",
+    "tags": [
+      "Guru Agama Islam Berprestasi",
+      "MTQ",
+      "Tahfidz",
+      "Moderasi Beragama",
+      "Dakwah Kreatif",
+      "DAI"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kristen",
+    "tags": [
+      "Guru Agama Kristen Berprestasi",
+      "Pendalaman Alkitab",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Katolik",
+    "tags": [
+      "Guru Agama Katolik Berprestasi",
+      "Katekese",
+      "Moderasi Beragama",
+      "Pelayanan Pendidikan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Hindu",
+    "tags": [
+      "Guru Agama Hindu Berprestasi",
+      "Dharma Wacana",
+      "Moderasi Beragama",
+      "Pendidikan Karakter"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Budha",
+    "tags": [
+      "Guru Agama Budha Berprestasi",
+      "Dhammadesana",
+      "Moderasi Beragama"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Konghucu",
+    "tags": [
+      "Guru Agama Konghucu Berprestasi",
+      "Pendidikan Budi Pekerti"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Kepercayaan",
+    "tags": [
+      "Pendidikan Kepercayaan",
+      "Moderasi Beragama",
+      "Pelestarian Nilai Luhur"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Keagamaan",
+    "category": "Keagamaan",
+    "subCategory": "Keagamaan Lainnya",
+    "tags": [
+      "Kegiatan Keagamaan GTK",
+      "Lintas Iman",
+      "Pembinaan Spiritual"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Akademik",
+    "category": "Science-Tech",
+    "subCategory": "Publikasi Ilmiah",
+    "tags": [
+      "Naskah Best Practice",
+      "Jurnal Penelitian",
+      "Prosiding Seminar",
+      "Artikel Ilmiah"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Akademik",
+    "category": "Akademik",
+    "subCategory": "Akademik Lainnya",
+    "tags": [
+      "Olimpiade Akademik",
+      "Karya Tulis Ilmiah",
+      "Penilaian Inovatif",
+      "Asesmen Pembelajaran"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Inovasi",
+    "category": "Science-Tech",
+    "subCategory": "Media Pembelajaran",
+    "tags": [
+      "Media Kreatif",
+      "Media Adaptif",
+      "Media Inovatif",
+      "SMA",
+      "SMK",
+      "SLB",
+      "PTK"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Inovasi",
+    "category": "Inovasi & Riset",
+    "subCategory": "Inovasi Lainnya",
+    "tags": [
+      "Riset Tindakan",
+      "Prototype Pendidikan",
+      "Solusi Pembelajaran"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Fiksi",
+    "tags": [
+      "Novel",
+      "Cerpen",
+      "Antologi Sastra"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Buku Non Fiksi",
+    "tags": [
+      "Buku Pendidikan",
+      "Biografi",
+      "Esai Populer"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Cerita Pendek & Esai",
+    "tags": [
+      "Cerpen",
+      "Esai Literasi",
+      "Opini Pendidikan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Storytelling & Mendongeng",
+    "tags": [
+      "Storytelling",
+      "Mendongeng Anak",
+      "Literasi Lisan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Literasi Digital",
+    "tags": [
+      "Blog Pendidikan",
+      "Konten Literasi Digital"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Literasi",
+    "subCategory": "Puisi",
+    "tags": [
+      "Puisi Bebas",
+      "Puisi Religi",
+      "Puisi Pendidikan",
+      "Apresiasi Puisi",
+      "Ekspresi Sastra",
+      "Deklamasi Puisi",
+      "Penampilan Sastra"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Bahasa & Sastra",
+    "category": "Bahasa & Sastra",
+    "subCategory": "Bahasa & Sastra Lainnya",
+    "tags": []
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "IT & Digital",
+    "tags": [
+      "Augmented Reality (AR)",
+      "Game Edukasi",
+      "Learning Management System (LMS)",
+      "Aplikasi Pendidikan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Teknologi",
+    "category": "Teknologi",
+    "subCategory": "Teknologi Lainnya",
+    "tags": [
+      "IoT Pendidikan",
+      "AI Pembelajaran",
+      "Multimedia Interaktif"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Gitar",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gitar Akustik",
+      "Gitar Elektrik"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Bass",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Bass Elektrik"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Drum",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Drum Akustik",
+      "Drum Elektronik"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Keyboard",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Piano",
+      "Keyboard Digital",
+      "Acara Formal",
+      "Orkes Dangdut"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Tradisional",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Gamelan",
+      "Angklung",
+      "Kolintang"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Musik & Band",
+    "subCategory": "Instrumen Lainnya",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Biola",
+      "Saxophone",
+      "Alat Musik Modern"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Menyanyi Solo",
+    "tags": [
+      "Pop",
+      "Rock",
+      "Jazz",
+      "Dangdut",
+      "Religi",
+      "Daerah"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Olah Vokal",
+    "subCategory": "Paduan Suara",
+    "tags": [
+      "Choir",
+      "Vokal Grup",
+      "Lagu Nasional",
+      "Lagu Daerah",
+      "Lagu Religi"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Tradisional",
+    "tags": [
+      "Tari Daerah",
+      "Tari Klasik",
+      "Tari Remo",
+      "Tari Kreasi Daerah"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Tari",
+    "subCategory": "Tari Modern",
+    "tags": [
+      "Modern Dance",
+      "Kontemporer",
+      "Hip-Hop",
+      "Korea",
+      "Jepang"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Rupa, Desain Visual & Fashion",
+    "subCategory": "Rupa, Desain Visual & Fashion",
+    "tags": [
+      "Desain",
+      "Patung",
+      "Desain Visual",
+      "Poster",
+      "Lukis",
+      "Fotografi",
+      "Videografi",
+      "Busana Kreasi",
+      "Batik",
+      "Fashion Edukatif",
+      "Teater"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Seni",
+    "category": "Seni",
+    "subCategory": "Seni Lainnya",
+    "tags": []
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bulu Tangkis",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Lapangan",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Bola Voli",
+    "tags": [
+      "Tim Putra",
+      "Tim Putri",
+      "Setter",
+      "Spiker",
+      "Service"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Senam Kreasi",
+    "tags": [
+      "Beregu",
+      "Koreografer",
+      "Senam Aerobik"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Sepak Bola",
+    "tags": [
+      "Bek Kanan",
+      "Gelandang",
+      "Penyerang",
+      "Kiper"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Futsal",
+    "tags": [
+      "Bek",
+      "Tengah",
+      "Penyerang",
+      "Kiper"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Karate",
+    "tags": [
+      "Kata",
+      "Kumite"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Taekwondo",
+    "tags": [
+      "Kyorugi",
+      "Poomsae"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Pencak Silat",
+    "tags": [
+      "Seni Tunggal",
+      "Tanding"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Tenis Meja",
+    "tags": [
+      "Tunggal Putra",
+      "Tunggal Putri",
+      "Ganda Putra",
+      "Ganda Putri",
+      "Ganda Campuran"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Olahraga",
+    "category": "Olahraga",
+    "subCategory": "Olahraga Lainnya",
+    "tags": [
+      "Atletik",
+      "Panahan",
+      "Renang",
+      "Catur",
+      "E-Sport"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Bakti Sosial",
+    "tags": [
+      "Pengabdian Masyarakat",
+      "Relawan Pendidikan",
+      "Aksi Kemanusiaan",
+      "Bakti Sosial",
+      "Kampanye Sosial"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Sosial",
+    "category": "Sosial",
+    "subCategory": "Literasi Sosial",
+    "tags": [
+      "Kampanye Literasi",
+      "Inklusi Sosial",
+      "Moderasi Beragama"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Sosial",
+    "category": "Sosial Lainnya",
+    "subCategory": "Kegiatan Sosial GTK, Program Komunitas, CSR Pendidikan, Pengabdian Masyarakat",
+    "tags": []
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Pengawas Sekolah",
+    "tags": [
+      "Pengawas Inspiratif",
+      "Supervisi Akademik",
+      "Transformasi Satuan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Kepala Sekolah",
+    "tags": [
+      "Kepsek Inovatif",
+      "Manajerial",
+      "Kewirausahaan Sekolah"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kepemimpinan",
+    "category": "Leadership",
+    "subCategory": "Guru & Tendik",
+    "tags": [
+      "Guru Impresif",
+      "Tendik Dedikatif",
+      "Agen Perubahan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kepemimpinan",
+    "category": "Kepemimpinan",
+    "subCategory": "Kepemimpinan Lainnya",
+    "tags": [
+      "Pemimpin Komunitas",
+      "Ketua Tim",
+      "Koordinator Program"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Produk Kreatif",
+    "tags": [
+      "Kewirausahaan Sekolah",
+      "UMKM GTK",
+      "Teaching Factory"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Jasa & Inovasi",
+    "tags": [
+      "Startup Edukasi",
+      "Jasa Pendidikan",
+      "Konsultan Pembelajaran",
+      "Inovasi Layanan"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Kewirausahaan",
+    "category": "Kewirausahaan",
+    "subCategory": "Kewirausahaan Lainnya",
+    "tags": [
+      "Bisnis Sosial",
+      "Edupreneur",
+      "Inovasi Usaha GTK"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Penghargaan",
+    "tags": [
+      "Penghargaan Khusus",
+      "Narasumber",
+      "Juri",
+      "Mentor",
+      "Fasilitator"
+    ]
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Partisiapasi Khusus",
+    "tags": []
+  },
+  {
+    "type": "Minat / Bakat / Lainnya",
+    "field": "Lainnya",
+    "category": "Lainnya",
+    "subCategory": "Lainnya",
+    "tags": [
+      "Prestasi Insidental",
+      "Aktivitas Non-Klasifikasi",
+      "Penugasan Khusus"
+    ]
+  }
+]

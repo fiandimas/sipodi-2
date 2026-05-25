@@ -1,0 +1,1340 @@
+import "dotenv/config";
+import {
+  PrismaClient,
+  UserRole,
+  SchoolLevel,
+  SchoolStatus,
+  TalentSubmissionStatus,
+  ScoreEntryType,
+  PasswordAlgo,
+  GtkType,
+  DecisionScope,
+} from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import crypto from "node:crypto";
+import fs from "node:fs";
+import * as xlsx from "xlsx";
+import path from "node:path";
+import { seedTalentaMaster } from "./seed-talenta";
+
+function sha256(text: string) {
+  return crypto.createHash("sha256").update(text).digest("hex");
+}
+
+const DATABASE_URL = process.env.DATABASE_URL;
+if (!DATABASE_URL) throw new Error("DATABASE_URL belum diset");
+
+const adapter = new PrismaPg({ connectionString: DATABASE_URL });
+const prisma = new PrismaClient({ adapter });
+
+const DATA_SEKOLAH_DIR = path.join(process.cwd(), "data", "DATA_SEKOLAH");
+const DATA_GTK_DIR = path.join(process.cwd(), "data", "DAFTAR_GTK");
+const GTK_MAPPING_PATH = path.join(DATA_GTK_DIR, "mapping.json");
+
+type GtkMapItem = { file: string; schoolNpsn: string; note?: string };
+const gtkMapping: GtkMapItem[] = JSON.parse(fs.readFileSync(GTK_MAPPING_PATH, "utf8"));
+
+function randInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomPastDate(maxDaysAgo: number) {
+  const now = new Date();
+  const d = new Date(now);
+  d.setDate(d.getDate() - randInt(0, maxDaysAgo));
+  return d;
+}
+
+// ===== skor helper (match API) =====
+function clamp(n: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, n));
+}
+function round1(n: number) {
+  return Math.round(n * 10) / 10;
+}
+function jenisScoreByTypeName(typeName: string) {
+  const name = typeName.toLowerCase();
+
+  if (
+    name.includes("peserta") &&
+    (name.includes("pelatihan") ||
+      name.includes("workshop") ||
+      name.includes("seminar") ||
+      name.includes("upskilling"))
+  )
+    return 40;
+
+  if (
+    (name.includes("narasumber") || name.includes("ahli")) &&
+    (name.includes("pelatihan") ||
+      name.includes("workshop") ||
+      name.includes("seminar") ||
+      name.includes("upskilling"))
+  )
+    return 80;
+
+  if (name.includes("pembimbing") && name.includes("lomba")) return 100;
+  if (name.includes("peserta") && name.includes("lomba")) return 100;
+
+  if (name.includes("minat") || name.includes("bakat") || name.includes("lainnya")) return 40;
+
+  return 40;
+}
+function computeScore(params: { userScore: number; tagScore: number; jenisScore: number; adminScore: number }) {
+  const { userScore, tagScore, jenisScore, adminScore } = params;
+  return round1(0.2 * userScore + 0.25 * tagScore + 0.25 * jenisScore + 0.3 * adminScore);
+}
+
+// nama random sederhana
+const firstNames = ["Budi", "Siti", "Ahmad", "Sri", "Yusuf", "Rina", "Dewi", "Agus", "Hendra", "Nina"];
+const lastNames = ["Santoso", "Aminah", "Pratama", "Lestari", "Suryana", "Saputra", "Wijaya", "Firmansyah", "Rahmawati", "Mahendra"];
+
+function randomName() {
+  const f = firstNames[randInt(0, firstNames.length - 1)];
+  const l = lastNames[randInt(0, lastNames.length - 1)];
+  return `${f} ${l}`;
+}
+
+const mapelList = ["Matematika", "Bahasa Indonesia", "Bahasa Inggris", "IPA", "IPS", "PJOK", "Seni Budaya", "Informatika"];
+function randomMapel() {
+  return mapelList[randInt(0, mapelList.length - 1)];
+}
+
+// ===== helper normalize =====
+function norm(s: string) {
+  return (s ?? "").toString().trim().replace(/\s+/g, " ").toUpperCase();
+}
+function softNorm(s: string) {
+  return (s ?? "")
+    .toString()
+    .toUpperCase()
+    .replace(/\s+/g, " ")
+    .replace(/\bKOTA\b/g, "")
+    .trim();
+}
+
+// ===== helper baca xlsx =====
+type AnyRow = Record<string, any>;
+
+function loadSheetRows(filePath: string): AnyRow[] {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const fs = require("fs");
+  if (!fs.existsSync(filePath)) {
+    console.warn(`⚠️ File tidak ditemukan: ${filePath}`);
+    return [];
+  }
+  const wb = xlsx.readFile(filePath);
+  const sheetName = wb.SheetNames[0];
+  if (!sheetName) return [];
+  const sheet = wb.Sheets[sheetName];
+  const rows = xlsx.utils.sheet_to_json<AnyRow>(sheet, { defval: "" });
+  console.log(`📄 ${filePath}: ${rows.length} baris terbaca`);
+  if (rows[0]) console.log(`🔎 Header sample: ${Object.keys(rows[0]).slice(0, 12).join(" | ")}`);
+  return rows;
+}
+
+function pick(row: AnyRow, candidates: string[]) {
+  for (const k of candidates) {
+    if (row[k] !== undefined && row[k] !== null && String(row[k]).trim() !== "") return String(row[k]).trim();
+  }
+  return "";
+}
+
+function toNull(v: any): string | null {
+  const t = String(v ?? "").trim();
+  if (!t) return null;
+  if (t.toLowerCase() === "null") return null;
+  return t;
+}
+
+function deriveJenisGtk(jenisPtk: string, jabatanPtk: string): GtkType {
+  const upper = `${jenisPtk} ${jabatanPtk}`.toUpperCase();
+  if (upper.includes("KEPALA SEKOLAH")) return GtkType.KEPALA_SEKOLAH;
+  if (upper.includes("GURU")) return GtkType.GURU;
+  if (upper.includes("TENAGA")) return GtkType.TENDIK;
+  if (upper.includes("KEPALA SEKSI")) return GtkType.KEPALA_SEKSI;
+  if (upper.includes("KEPALA CABANG")) return GtkType.KEPALA_CABANG_DINAS;
+  return GtkType.TENDIK;
+}
+
+function deriveMapel(jabatanPtk: string, gtkType: GtkType): string | null {
+  if (gtkType !== GtkType.GURU) return null;
+  const upper = (jabatanPtk || "").toUpperCase();
+  if (upper.includes("MATEMATIKA")) return "Matematika";
+  if (upper.includes("BAHASA INDONESIA")) return "Bahasa Indonesia";
+  if (upper.includes("BAHASA INGGRIS")) return "Bahasa Inggris";
+  if (upper.includes("IPA")) return "IPA";
+  if (upper.includes("IPS")) return "IPS";
+  if (upper.includes("PJOK")) return "PJOK";
+  if (upper.includes("SENI")) return "Seni Budaya";
+  if (upper.includes("INFORMATIKA") || upper.includes("TIK")) return "Informatika";
+  return randomMapel();
+}
+
+// ===== mapping file GTK -> nama sekolah =====
+const gtkSchoolNameHint: Record<string, string> = {
+  "SMAN-1-MALANG.xlsx": "SMA NEGERI 1 KOTA MALANG",
+  "SMAN-2-MALANG.xlsx": "SMA NEGERI 2 KOTA MALANG",
+  "SMAN-3-MALANG.xlsx": "SMA NEGERI 3 KOTA MALANG",
+  "SMAN-4-MALANG.xlsx": "SMA NEGERI 4 KOTA MALANG",
+  "SMAN-5-MALANG.xlsx": "SMA NEGERI 5 KOTA MALANG",
+  "SMAN-6-MALANG.xlsx": "SMA NEGERI 6 KOTA MALANG",
+  "SMAN-7-MALANG.xlsx": "SMA NEGERI 7 KOTA MALANG",
+  "SMAN-8-MALANG.xlsx": "SMA NEGERI 8 KOTA MALANG",
+  "SMAN-9-MALANG.xlsx": "SMA NEGERI 9 KOTA MALANG",
+  "SMAN-10-MALANG.xlsx": "SMA NEGERI 10 KOTA MALANG",
+  "SMAN-TARUNA-NALA.xlsx": "SMA NEGERI TARUNA NALA JAWA TIMUR",
+
+  "SMK-AL-AZHAR.xlsx": "SMK AL AZHAR",
+  "SMK-SHALAHUDIN.xlsx": "SMK SHALAHUDIN KOTA MALANG",
+  "SMK-TELKOM.xlsx": "SMK TELKOM KOTA MALANG",
+  "SMK-NMC-MALANG.xlsx": "SMK NATIONAL MEDIA CENTER",
+
+  "SMKN-1-MALANG.xlsx": "SMK NEGERI 1 MALANG",
+  "SMKN-2-MALANG.xlsx": "SMK NEGERI 2 MALANG",
+  "SMKN-3-MALANG.xlsx": "SMK NEGERI 3 MALANG",
+  "SMKN-4-MALANG.xlsx": "SMK NEGERI 4 MALANG",
+  "SMKN-5-MALANG.xlsx": "SMK NEGERI 5 MALANG",
+  "SMKN-6-MALANG.xlsx": "SMK NEGERI 6 MALANG",
+  "SMKN-7-MALANG.xlsx": "SMK NEGERI 7 MALANG",
+  "SMKN-8-MALANG.xlsx": "SMK NEGERI 8 MALANG",
+  "SMKN-9-MALANG.xlsx": "SMK NEGERI 9 MALANG",
+  "SMKN-10-MALANG.xlsx": "SMK NEGERI 10 MALANG",
+  "SMKN-11-MALANG.xlsx": "SMK NEGERI 11 MALANG",
+  "SMKN-12-MALANG.xlsx": "SMK NEGERI 12 MALANG",
+  "SMKN-13-MALANG.xlsx": "SMK NEGERI 13 MALANG",
+};
+
+async function upsertSuperAdminGrant(userId: string, branchId: string) {
+  const exists = await prisma.userAccess.findFirst({
+    where: { userId, role: UserRole.SUPER_ADMIN, branchId },
+    select: { id: true },
+  });
+
+  if (!exists) {
+    await prisma.userAccess.create({
+      data: {
+        userId,
+        role: UserRole.SUPER_ADMIN,
+        branchId,
+        schoolNpsn: null,
+      },
+    });
+  }
+}
+
+async function upsertAdminSekolahGrant(userId: string, branchId: string, schoolNpsn: string) {
+  const exists = await prisma.userAccess.findFirst({
+    where: { userId, role: UserRole.ADMIN_SEKOLAH, branchId, schoolNpsn },
+    select: { id: true },
+  });
+
+  if (!exists) {
+    await prisma.userAccess.create({
+      data: {
+        userId,
+        role: UserRole.ADMIN_SEKOLAH,
+        branchId,
+        schoolNpsn,
+      },
+    });
+  }
+}
+
+// helper: ambil sample random dari array (unique)
+function pickRandomUnique<T>(arr: T[], count: number): T[] {
+  if (count <= 0) return [];
+  if (count >= arr.length) return [...arr];
+  const picked: T[] = [];
+  const used = new Set<number>();
+  while (picked.length < count) {
+    const idx = randInt(0, arr.length - 1);
+    if (used.has(idx)) continue;
+    used.add(idx);
+    picked.push(arr[idx]);
+  }
+  return picked;
+}
+
+function generateNikFromBirthAndGender(
+  birthDateStr: string | null | undefined,
+  genderStr: string | null | undefined,
+  counter: number
+): string {
+  const wilayah = "357301"; // kode wilayah dummy (Malang)
+
+  // 1) Tentukan gender (kalau kosong, random L/P)
+  let gender = (genderStr || "").toUpperCase().trim();
+  if (gender !== "L" && gender !== "P") {
+    gender = Math.random() < 0.5 ? "L" : "P";
+  }
+
+  // 2) Tentukan tanggal lahir (kalau kosong/invalid, random)
+  let birth = birthDateStr ? new Date(birthDateStr) : new Date(NaN);
+
+  if (isNaN(birth.getTime())) {
+    const now = new Date();
+    const minAge = 22;
+    const maxAge = 60;
+    const age = randInt(minAge, maxAge);
+    const year = now.getFullYear() - age;
+    const month = randInt(1, 12);
+    const day = randInt(1, 28);
+
+    birth = new Date(year, month - 1, day);
+  }
+
+  const day = birth.getDate();
+  const month = birth.getMonth() + 1;
+  const year = birth.getFullYear() % 100;
+
+  let dd = String(day).padStart(2, "0");
+  const mm = String(month).padStart(2, "0");
+  const yy = String(year).padStart(2, "0");
+
+  if (gender === "P") {
+    const dayNum = Number(dd);
+    dd = String(dayNum + 40).padStart(2, "0");
+  }
+
+  const urut = String(counter % 10000).padStart(4, "0");
+
+  return `${wilayah}${dd}${mm}${yy}${urut}`;
+}
+
+async function main() {
+  console.log("🚀 Mulai seed database...");
+  console.log("📂 CWD:", process.cwd());
+  console.log("📂 DATA_SEKOLAH_DIR:", DATA_SEKOLAH_DIR);
+
+  const BRANCH_ID = "cabdin-malang";
+  const BRANCH_NAME = "Cabang Dinas Wilayah Malang";
+  const BRANCH_CITY = "Kota Malang";
+
+  const PASSWORD_SUPERADMIN = "superadmin123";
+  const PASSWORD_ADMIN_TALENTA = "admintalenta123";
+  const PASSWORD_ADMIN_SEKOLAH = "adminsekolah123";
+
+  // ===== branch =====
+  console.log("📌 Upsert branch & letterhead...");
+  const branch = await prisma.branch.upsert({
+    where: { id: BRANCH_ID },
+    update: { name: BRANCH_NAME, city: BRANCH_CITY },
+    create: { id: BRANCH_ID, name: BRANCH_NAME, city: BRANCH_CITY },
+  });
+
+  await prisma.branchLetterhead.upsert({
+    where: { branchId: branch.id },
+    update: {
+      title: "CABANG DINAS PENDIDIKAN WILAYAH MALANG (KOTA MALANG - KOTA BATU)",
+      address: "Jalan Anjasmoro Nomor 40, Oro-oro Dowo, Kec. Klojen, Kota Malang, Jawa Timur 65119",
+      phone: "(0341) 353155",
+      email: "cabdinmalangbatu@gmail.com",
+      logoPath: null,
+      signerRole: "Kepala Cabang Dinas Pendidikan",
+      signerName: "Dr. Hj. Hastini Ratna Dewi, M.Pd",
+      signerRank: "Pembina Tingkat I (IV/b)",
+      signerNip: "196906302003122004",
+    },
+    create: {
+      branchId: branch.id,
+      title: "CABANG DINAS PENDIDIKAN WILAYAH MALANG (KOTA MALANG - KOTA BATU)",
+      address: "Jalan Anjasmoro Nomor 40, Oro-oro Dowo, Kec. Klojen, Kota Malang, Jawa Timur 65119",
+      phone: "(0341) 353155",
+      email: "cabdinmalangbatu@gmail.com",
+      logoPath: null,
+      signerRole: "Kepala Cabang Dinas Pendidikan",
+      signerName: "Dr. Hj. Hastini Ratna Dewi, M.Pd",
+      signerRank: "Pembina Tingkat I (IV/b)",
+      signerNip: "196906302003122004",
+    },
+  });
+  console.log("✅ Branch & letterhead selesai");
+
+  // ===== sekolah =====
+  console.log("🏫 Load & upsert sekolah...");
+
+  type SchoolSeed = {
+    npsn: string;
+    name: string;
+    level: SchoolLevel;
+    status: SchoolStatus;
+    city: string;
+    headName: string | null;
+    headRank: string | null;
+    headNip: string | null;
+    address: string;
+  };
+
+  const schoolsSeed: SchoolSeed[] = [];
+
+  function deriveSchoolStatusFromName(name: string): SchoolStatus {
+    const n = norm(name);
+    if (/\bNEGERI\b/.test(n)) return SchoolStatus.NEGERI;
+    if (/\bSMAN\b/.test(n)) return SchoolStatus.NEGERI;
+    if (/\bSMKN\b/.test(n)) return SchoolStatus.NEGERI;
+    if (/\bSLBN\b/.test(n)) return SchoolStatus.NEGERI;
+    return SchoolStatus.SWASTA;
+  }
+
+  // Malang
+  const rowsMalang = loadSheetRows(path.join(DATA_SEKOLAH_DIR, "KOTA MALANG.xlsx"));
+  for (const r of rowsMalang) {
+    const npsn = pick(r, ["NPSN", "Npsn", "npsn"]);
+    const name = pick(r, ["Nama Satuan Pendidikan", "NAMA SATUAN PENDIDIKAN", "Nama Sekolah", "Nama"]);
+    if (!npsn || !name) continue;
+
+    const schoolStatus = deriveSchoolStatusFromName(name);
+    const address = pick(r, ["Alamat", "ALAMAT"]);
+    const headName = pick(r, ["Nama Kepala Sekolah", "NAMA KEPALA SEKOLAH"]) || null;
+
+    const nameUpper = norm(name);
+    let level: SchoolLevel = SchoolLevel.SMA;
+    if (nameUpper.includes("SLB")) level = SchoolLevel.SLB;
+    else if (nameUpper.includes("SMK")) level = SchoolLevel.SMK;
+    else if (nameUpper.includes("SMA")) level = SchoolLevel.SMA;
+
+    schoolsSeed.push({
+      npsn,
+      name,
+      level,
+      status: schoolStatus,
+      city: "Kota Malang",
+      headName,
+      headRank: null,
+      headNip: null,
+      address,
+    });
+  }
+  console.log(`✅ Sekolah Malang aktif: ${schoolsSeed.filter((s) => s.city === "Kota Malang").length}`);
+
+  function loadBatuSchools(filePath: string): AnyRow[] {
+    const fs = require("fs");
+    if (!fs.existsSync(filePath)) {
+      console.warn(`⚠️ File tidak ditemukan: ${filePath}`);
+      return [];
+    }
+    const wb = xlsx.readFile(filePath);
+    const sheetName = wb.SheetNames[0];
+    if (!sheetName) return [];
+    const sheet = wb.Sheets[sheetName];
+
+    const range = xlsx.utils.decode_range(sheet["!ref"] as string);
+    range.s.r = 4;
+    sheet["!ref"] = xlsx.utils.encode_range(range);
+
+    const rows = xlsx.utils.sheet_to_json<AnyRow>(sheet, { defval: "" });
+    console.log(`📄 (BATU) ${filePath}: ${rows.length} baris terbaca`);
+    if (rows[0]) console.log(`🔎 (BATU) Header sample: ${Object.keys(rows[0]).slice(0, 12).join(" | ")}`);
+    return rows;
+  }
+
+  const rowsBatu = loadBatuSchools(path.join(DATA_SEKOLAH_DIR, "KOTA BATU.xlsx"));
+  for (const r of rowsBatu) {
+    const npsn = pick(r, ["NPSN", "Npsn", "npsn"]);
+    const name = pick(r, ["Nama Satuan Pendidikan", "NAMA SATUAN PENDIDIKAN", "Nama Sekolah", "Nama"]);
+    if (!npsn || !name) continue;
+
+    const schoolStatus = deriveSchoolStatusFromName(name);
+    const address = pick(r, ["Alamat", "ALAMAT"]);
+    const headName = pick(r, ["Nama Kepala Sekolah", "NAMA KEPALA SEKOLAH"]) || null;
+
+    const nameUpper = norm(name);
+    let level: SchoolLevel = SchoolLevel.SMA;
+    if (nameUpper.includes("SLB")) level = SchoolLevel.SLB;
+    else if (nameUpper.includes("SMK")) level = SchoolLevel.SMK;
+    else if (nameUpper.includes("SMA")) level = SchoolLevel.SMA;
+
+    schoolsSeed.push({
+      npsn,
+      name,
+      level,
+      status: schoolStatus,
+      city: "Kota Batu",
+      headName,
+      headRank: null,
+      headNip: null,
+      address,
+    });
+  }
+  console.log(`✅ Sekolah Batu aktif: ${schoolsSeed.filter((s) => s.city === "Kota Batu").length}`);
+
+  for (const s of schoolsSeed) {
+    await prisma.school.upsert({
+      where: { npsn: s.npsn },
+      update: {
+        name: s.name,
+        level: s.level,
+        status: s.status,
+        city: s.city,
+        headName: s.headName || undefined,
+        headRank: s.headRank || undefined,
+        headNip: s.headNip || undefined,
+        branchId: branch.id,
+      },
+      create: {
+        npsn: s.npsn,
+        name: s.name,
+        level: s.level,
+        status: s.status,
+        city: s.city,
+        headName: s.headName || undefined,
+        headRank: s.headRank || undefined,
+        headNip: s.headNip || undefined,
+        branchId: branch.id,
+      },
+    });
+
+    await prisma.schoolLetterhead.upsert({
+      where: { schoolNpsn: s.npsn },
+      update: {
+        title: s.name.toUpperCase(),
+        address: s.address,
+        phone: "0000-0000",
+        logoPath: null,
+      },
+      create: {
+        schoolNpsn: s.npsn,
+        title: s.name.toUpperCase(),
+        address: s.address,
+        phone: "0000-0000",
+        logoPath: null,
+      },
+    });
+  }
+  console.log(`✅ Total sekolah di-UPSERT: ${schoolsSeed.length}`);
+
+  // ===== users admin =====
+  console.log("👤 Upsert superadmin...");
+  const superadmin = await prisma.user.upsert({
+    where: { username: "superadmin" },
+    update: {
+      name: "Super Admin",
+      role: UserRole.SUPER_ADMIN,
+      branchId: branch.id,
+      schoolNpsn: null,
+      gtkNik: null,
+      isActive: true,
+      password: sha256(PASSWORD_SUPERADMIN),
+      passwordAlgo: PasswordAlgo.SHA256,
+    },
+    create: {
+      username: "superadmin",
+      name: "Super Admin",
+      role: UserRole.SUPER_ADMIN,
+      branchId: branch.id,
+      schoolNpsn: null,
+      gtkNik: null,
+      isActive: true,
+      password: sha256(PASSWORD_SUPERADMIN),
+      passwordAlgo: PasswordAlgo.SHA256,
+    },
+    select: { id: true },
+  });
+  await upsertSuperAdminGrant(superadmin.id, branch.id);
+  console.log("✅ Superadmin siap + grant");
+
+  console.log("📚 Seed master talenta...");
+  await seedTalentaMaster(prisma);
+
+  const fieldsAll = await prisma.talentField.findMany({ select: { id: true, name: true } });
+  if (!fieldsAll.length) throw new Error("Tidak ada TalentField setelah seedTalentaMaster.");
+  console.log(`✅ TalentField: ${fieldsAll.length}`);
+
+  console.log("👤 Upsert admin talenta per bidang...");
+  for (const [idx, f] of fieldsAll.entries()) {
+    const slug =
+      f.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, "") || `field_${idx + 1}`;
+    const username = `admintalenta_${slug}`;
+
+    const admin = await prisma.user.upsert({
+      where: { username },
+      update: {
+        name: `Admin Talenta - ${f.name}`,
+        role: UserRole.ADMIN_TALENTA,
+        branchId: branch.id,
+        schoolNpsn: null,
+        gtkNik: null,
+        isActive: true,
+        password: sha256(PASSWORD_ADMIN_TALENTA),
+        passwordAlgo: PasswordAlgo.SHA256,
+      },
+      create: {
+        username,
+        name: `Admin Talenta - ${f.name}`,
+        role: UserRole.ADMIN_TALENTA,
+        branchId: branch.id,
+        schoolNpsn: null,
+        gtkNik: null,
+        isActive: true,
+        password: sha256(PASSWORD_ADMIN_TALENTA),
+        passwordAlgo: PasswordAlgo.SHA256,
+      },
+      select: { id: true },
+    });
+
+    await prisma.userTalentField.upsert({
+      where: { userId_fieldId: { userId: admin.id, fieldId: f.id } },
+      update: {},
+      create: { userId: admin.id, fieldId: f.id },
+    });
+  }
+  console.log("✅ Admin talenta per bidang selesai");
+
+  const firstField = fieldsAll[0];
+
+  console.log("👤 Upsert admin sekolah per sekolah + grant user_access...");
+  for (const s of schoolsSeed) {
+    const uname = `adminsekolah_${s.npsn}`;
+
+    const adminSekolah = await prisma.user.upsert({
+      where: { username: uname },
+      update: {
+        name: `Admin Sekolah - ${s.name}`,
+        role: UserRole.ADMIN_SEKOLAH,
+        branchId: branch.id,
+        schoolNpsn: s.npsn,
+        gtkNik: null,
+        isActive: true,
+        password: sha256(PASSWORD_ADMIN_SEKOLAH),
+        passwordAlgo: PasswordAlgo.SHA256,
+      },
+      create: {
+        username: uname,
+        name: `Admin Sekolah - ${s.name}`,
+        role: UserRole.ADMIN_SEKOLAH,
+        branchId: branch.id,
+        schoolNpsn: s.npsn,
+        gtkNik: null,
+        isActive: true,
+        password: sha256(PASSWORD_ADMIN_SEKOLAH),
+        passwordAlgo: PasswordAlgo.SHA256,
+      },
+      select: { id: true },
+    });
+
+    await upsertAdminSekolahGrant(adminSekolah.id, branch.id, s.npsn);
+  }
+  console.log("✅ Admin sekolah selesai + grant");
+
+  // map admin sekolah per NPSN (untuk approvedById/rejectedById)
+  const adminSekolahByNpsn = new Map<string, string>();
+  const adminSekolahUsers = await prisma.user.findMany({
+    where: { role: UserRole.ADMIN_SEKOLAH },
+    select: { id: true, schoolNpsn: true },
+  });
+  for (const u of adminSekolahUsers) {
+    if (u.schoolNpsn) adminSekolahByNpsn.set(u.schoolNpsn, u.id);
+  }
+
+  console.log("👤 Upsert admin talenta semua bidang...");
+  const multiAdminUsername = "admintalenta_all";
+  const multiAdmin = await prisma.user.upsert({
+    where: { username: multiAdminUsername },
+    update: {
+      name: "Admin Talenta Semua Bidang",
+      role: UserRole.ADMIN_TALENTA,
+      branchId: branch.id,
+      schoolNpsn: null,
+      gtkNik: null,
+      isActive: true,
+      password: sha256(PASSWORD_ADMIN_TALENTA),
+      passwordAlgo: PasswordAlgo.SHA256,
+    },
+    create: {
+      username: multiAdminUsername,
+      name: "Admin Talenta Semua Bidang",
+      role: UserRole.ADMIN_TALENTA,
+      branchId: branch.id,
+      schoolNpsn: null,
+      gtkNik: null,
+      isActive: true,
+      password: sha256(PASSWORD_ADMIN_TALENTA),
+      passwordAlgo: PasswordAlgo.SHA256,
+    },
+    select: { id: true },
+  });
+
+  for (const f of fieldsAll) {
+    await prisma.userTalentField.upsert({
+      where: { userId_fieldId: { userId: multiAdmin.id, fieldId: f.id } },
+      update: {},
+      create: { userId: multiAdmin.id, fieldId: f.id },
+    });
+  }
+  console.log("✅ Admin talenta semua bidang selesai");
+
+  const talentaRater = { id: multiAdmin.id };
+
+  // ===== GTK =====
+  console.log("👥 (Dev) Bersihkan GTK & user GTK lama...");
+  await prisma.user.deleteMany({ where: { role: UserRole.USER_GTK } });
+  await prisma.gtk.deleteMany({});
+  console.log("✅ Data GTK lama dibersihkan");
+
+  type GtkSeed = {
+    nik: string;
+    name: string;
+    email: string;
+    schoolNpsn: string;
+    type: GtkType;
+    mapel?: string | null;
+
+    nuptk?: string | null;
+    nip?: string | null;
+    gender?: "L" | "P" | null;
+    birthDate?: Date | null;
+  };
+
+  const allGtk: GtkSeed[] = [];
+
+  console.log(`👥 Load GTK dari mapping.json: ${gtkMapping.length} file`);
+
+  for (const item of gtkMapping) {
+    if (!item.schoolNpsn) {
+      console.warn(`⚠️ mapping kosong (schoolNpsn): ${item.file}`);
+      continue;
+    }
+
+    const filePath = path.join(process.cwd(), item.file); // item.file sudah relatif root
+    const gtkRows = loadSheetRows(filePath);
+    if (!gtkRows.length) continue;
+
+    const schoolNpsn = item.schoolNpsn;
+
+    // Validasi sekolah ada (biar mapping salah cepat ketahuan)
+    const schoolExists = await prisma.school.findUnique({
+      where: { npsn: schoolNpsn },
+      select: { npsn: true },
+    });
+    if (!schoolExists) {
+      console.warn(`⚠️ NPSN tidak ada di tabel School: ${schoolNpsn} (file ${item.file})`);
+      continue;
+    }
+
+    for (const r of gtkRows) {
+      const name = pick(r, ["Nama Lengkap", "NAMA LENGKAP", "Nama", "NAMA"]);
+      if (!name) continue;
+
+      // WAJIB: pakai NIK asli dari Excel
+      const nik = toNull(pick(r, ["NIK", "Nik"]));
+      if (!nik) continue;
+
+      const nuptk = toNull(pick(r, ["NUPTK", "Nuptk"]));
+      const nip = toNull(pick(r, ["NIP", "Nip"]));
+
+      const genderRaw = toNull(pick(r, ["L/P", "L_P", "JK", "Jenis Kelamin"]));
+      const gender = genderRaw === "L" || genderRaw === "P" ? (genderRaw as "L" | "P") : null;
+
+      const birthDateStr = toNull(pick(r, ["Tanggal Lahir", "TANGGAL LAHIR", "Tgl Lahir"]));
+      let birthDate: Date | null = null;
+      if (birthDateStr) {
+        const d = new Date(birthDateStr);
+        if (!isNaN(d.getTime())) birthDate = d;
+      }
+
+      const jenisPtk = pick(r, ["Jenis PTK", "JENIS PTK", "Jenis"]);
+      const jabatanPtk = pick(r, ["Jabatan PTK", "JABATAN PTK", "Jabatan"]);
+      const type = deriveJenisGtk(jenisPtk, jabatanPtk);
+      const mapel = deriveMapel(jabatanPtk, type);
+
+      const safeName =
+        (name || "gtk")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, ".")
+          .replace(/^\.+|\.+$/g, "") || "gtk";
+
+      // Email unik & deterministik
+      const email = `${safeName}.${nik}@${schoolNpsn}.example.com`.toLowerCase();
+
+      allGtk.push({
+        nik,
+        name,
+        email,
+        schoolNpsn,
+        type,
+        mapel,
+        nuptk,
+        nip,
+        gender,
+        birthDate,
+      });
+    }
+  }
+
+  // Dedup by nik (PK Gtk)
+  const byNik = new Map<string, GtkSeed>();
+  for (const g of allGtk) if (!byNik.has(g.nik)) byNik.set(g.nik, g);
+  const gtkFinal = [...byNik.values()];
+  console.log(`✅ GTK final setelah dedup nik: ${gtkFinal.length}`);
+
+  // insert GTK + user
+  console.log("💾 Upsert GTK + user GTK...");
+  for (const g of gtkFinal) {
+    const gtk = await prisma.gtk.upsert({
+      where: { nik: g.nik },
+      update: {
+        name: g.name,
+        email: g.email,
+        schoolNpsn: g.schoolNpsn,
+        mapel: g.mapel ?? undefined,
+        type: g.type,
+        nuptk: g.nuptk ?? undefined,
+        nip: g.nip ?? undefined,
+        gender: g.gender ?? undefined,
+        birthDate: g.birthDate ?? undefined,
+      },
+      create: {
+        nik: g.nik,
+        name: g.name,
+        email: g.email,
+        schoolNpsn: g.schoolNpsn,
+        mapel: g.mapel ?? undefined,
+        type: g.type,
+        nuptk: g.nuptk ?? undefined,
+        nip: g.nip ?? undefined,
+        gender: g.gender ?? undefined,
+        birthDate: g.birthDate ?? undefined,
+      },
+      select: { nik: true, name: true, schoolNpsn: true },
+    });
+
+    const username = `gtk_${gtk.nik}`;
+
+    await prisma.user.upsert({
+      where: { gtkNik: gtk.nik },
+      update: {
+        username,
+        name: gtk.name,
+        role: UserRole.USER_GTK,
+        isActive: true,
+        schoolNpsn: gtk.schoolNpsn,
+        branchId: branch.id,
+        password: sha256(gtk.nik),
+        passwordAlgo: PasswordAlgo.SHA256,
+      },
+      create: {
+        username,
+        name: gtk.name,
+        role: UserRole.USER_GTK,
+        isActive: true,
+        gtkNik: gtk.nik,
+        schoolNpsn: gtk.schoolNpsn,
+        branchId: branch.id,
+        password: sha256(gtk.nik),
+        passwordAlgo: PasswordAlgo.SHA256,
+      },
+    });
+  }
+  console.log(`✅ Total GTK di-UPSERT: ${gtkFinal.length}`);
+
+  // ===== master data untuk seed submission =====
+  console.log("📚 Load master type/field/category/sub/tag...");
+  const types = await prisma.talentType.findMany({ select: { id: true, name: true } });
+  const fields = await prisma.talentField.findMany({ select: { id: true } });
+  const categories = await prisma.talentCategory.findMany({ select: { id: true, fieldId: true } });
+  const subCategories = await prisma.talentSubCategory.findMany({ select: { id: true, categoryId: true } });
+
+  const tags = await prisma.talentTag.findMany({
+    where: { isActive: true },
+    select: { id: true, subCategoryId: true },
+  });
+
+  const tagsBySub = new Map<string, string[]>();
+  for (const t of tags) {
+    const arr = tagsBySub.get(t.subCategoryId) ?? [];
+    arr.push(t.id);
+    tagsBySub.set(t.subCategoryId, arr);
+  }
+
+  const juaraTags = await prisma.talentTag.findMany({
+    where: { isActive: true, name: { in: ["Juara 1", "Juara 2", "Juara 3"] } },
+    select: { id: true, subCategoryId: true },
+  });
+
+  const juaraBySub = new Map<string, string[]>();
+  for (const t of juaraTags) {
+    const arr = juaraBySub.get(t.subCategoryId) ?? [];
+    arr.push(t.id);
+    juaraBySub.set(t.subCategoryId, arr);
+  }
+
+  console.log(
+    `✅ talentType: ${types.length}, talentField: ${fields.length}, category: ${categories.length}, subCategory: ${subCategories.length}, tag: ${tags.length}`
+  );
+
+  // ===== seed submissions + keputusan sekolah + review tahap-2 (TALENTA/SUPER_ADMIN override) =====
+  console.log("📝 Seed talentSubmission (connect tags + tagsOtherText) + keputusan SEKOLAH + review tahap-2...");
+
+  if (types.length && fields.length && categories.length && gtkFinal.length) {
+    await prisma.talentScoreEntry.deleteMany({});
+    await prisma.talentSubmission.deleteMany({});
+
+    const MAX_DAYS = 365;
+    const COUNT_PER_GTK = 10;
+    const MAX_TAGS = 20;
+
+    const createdApprovedIds: string[] = [];
+
+    for (const gtk of gtkFinal) {
+      for (let i = 0; i < COUNT_PER_GTK; i++) {
+        const createdAt = randomPastDate(MAX_DAYS);
+
+        // status hasil sekolah
+        const roll = randInt(1, 3);
+        let status: TalentSubmissionStatus = TalentSubmissionStatus.PENDING;
+        if (roll === 1) status = TalentSubmissionStatus.APPROVED;
+        if (roll === 2) status = TalentSubmissionStatus.REJECTED;
+
+        const pickedType = types[randInt(0, types.length - 1)];
+        const jenisScore = jenisScoreByTypeName(pickedType.name);
+
+        const userScore = randInt(1, 100);
+
+        // pick field/category/subcategory
+        let pickedFieldId = randInt(1, 2) === 1 ? firstField.id : fields[randInt(0, fields.length - 1)].id;
+
+        let categoriesForField = categories.filter((c) => c.fieldId === pickedFieldId);
+        let pickedCategory =
+          categoriesForField.length > 0
+            ? categoriesForField[randInt(0, categoriesForField.length - 1)]
+            : categories[randInt(0, categories.length - 1)];
+
+        if (categoriesForField.length === 0) pickedFieldId = pickedCategory.fieldId;
+
+        const subForCat = subCategories.filter((x) => x.categoryId === pickedCategory.id);
+        const pickedSubCategoryId = subForCat.length ? subForCat[randInt(0, subForCat.length - 1)].id : null;
+
+        // ===== tags (relational first, fallback otherText) =====
+        let tagIds: string[] = [];
+        let tagsOtherText: string[] = [];
+
+        const desiredTotalTags = clamp(randInt(1, 5), 1, MAX_TAGS);
+
+        if (pickedSubCategoryId) {
+          // ambil beberapa tag random dari subCategory ini
+          const pool = tagsBySub.get(pickedSubCategoryId) ?? [];
+          if (pool.length) {
+            const take = clamp(
+              randInt(1, Math.min(desiredTotalTags, pool.length)),
+              1,
+              pool.length
+            );
+            tagIds = pickRandomUnique(pool, take);
+          }
+
+          // WAJIB: selalu pakai Juara 1/2/3 untuk subCategory ini
+          const juaraPool = juaraBySub.get(pickedSubCategoryId) ?? [];
+          if (juaraPool.length) {
+            const juaraId = juaraPool[randInt(0, juaraPool.length - 1)];
+            if (!tagIds.includes(juaraId) && tagIds.length < MAX_TAGS) {
+              tagIds.unshift(juaraId);
+            }
+          }
+        }
+
+        // fallback kalau subCategoryId null atau tidak ada tag sama sekali
+        if (!tagIds.length) {
+          tagsOtherText = Array.from({ length: desiredTotalTags }).map(
+            (_, k) => `TAG_BEBAS_${k + 1}`
+          );
+        } else {
+          const extraOther = randInt(0, 2);
+          tagsOtherText = Array.from({ length: extraOther }).map(
+            (_, k) => `TAG_BEBAS_${k + 1}`
+          );
+        }
+
+        const totalTags = clamp(tagIds.length + tagsOtherText.length, 1, MAX_TAGS);
+        const tagScore = totalTags * 5;
+
+        const adminScore = 0;
+        const computedScore = computeScore({ userScore, tagScore, jenisScore, adminScore });
+
+        // ===== keputusan SEKOLAH (siapa yg approve/reject) =====
+        const schoolAdminId = adminSekolahByNpsn.get(gtk.schoolNpsn) ?? null;
+
+        let approvedAt: Date | null = null;
+        let rejectedAt: Date | null = null;
+
+        if (status === TalentSubmissionStatus.APPROVED) {
+          approvedAt = new Date(createdAt);
+          approvedAt.setDate(approvedAt.getDate() + randInt(0, 14));
+        }
+        if (status === TalentSubmissionStatus.REJECTED) {
+          rejectedAt = new Date(createdAt);
+          rejectedAt.setDate(rejectedAt.getDate() + randInt(0, 14));
+        }
+
+        const created = await prisma.talentSubmission.create({
+          data: {
+            gtkNik: gtk.nik,
+            typeId: pickedType.id,
+            fieldId: pickedFieldId,
+            categoryId: pickedCategory.id,
+            subCategoryId: pickedSubCategoryId,
+
+            activityName: `Kegiatan ${gtk.name} #${i + 1}`,
+            organizer: "Organisasi Contoh",
+            description: `Deskripsi kegiatan ke-${i + 1} untuk ${gtk.name}`,
+            linkPendukung: i % 3 === 0 ? "https://example.com/bukti" : null,
+
+            status,
+            createdAt,
+
+            userScore,
+            tagScore,
+            jenisScore,
+            adminScore,
+            computedScore,
+
+            tagsOtherText,
+            ...(tagIds.length ? { tags: { connect: tagIds.map((id) => ({ id })) } } : {}),
+
+            ...(status === TalentSubmissionStatus.APPROVED
+              ? {
+                approvedScope: DecisionScope.SEKOLAH,
+                approvedById: schoolAdminId,
+                approvedAt,
+                approvalNote: "Seed: APPROVE(SEKOLAH)",
+              }
+              : {}),
+
+            ...(status === TalentSubmissionStatus.REJECTED
+              ? {
+                rejectedScope: DecisionScope.SEKOLAH,
+                rejectedById: schoolAdminId,
+                rejectedAt,
+                rejectionNote: "Seed: REJECT(SEKOLAH)",
+                adminScore: null,
+                computedScore: null,
+              }
+              : {}),
+          },
+          select: { id: true },
+        });
+
+        // audit log sekolah
+        if (status === TalentSubmissionStatus.APPROVED) {
+          await prisma.talentScoreEntry.create({
+            data: {
+              submissionId: created.id,
+              type: ScoreEntryType.ADJUSTMENT,
+              points: 0,
+              createdById: schoolAdminId,
+              note: "APPROVE(SEKOLAH): Seed",
+            },
+          });
+          createdApprovedIds.push(created.id);
+        } else if (status === TalentSubmissionStatus.REJECTED) {
+          await prisma.talentScoreEntry.create({
+            data: {
+              submissionId: created.id,
+              type: ScoreEntryType.ADJUSTMENT,
+              points: 0,
+              createdById: schoolAdminId,
+              note: "REJECT(SEKOLAH): Seed",
+            },
+          });
+        }
+      }
+    }
+
+    console.log(`✅ talentSubmission dibuat (loop create): ${gtkFinal.length * COUNT_PER_GTK}`);
+
+    // ===== Review tahap-2: TALENTA atau SUPER_ADMIN (setara, boleh override) =====
+    // Yang diatur:
+    // - Tidak semua submission lolos sekolah direview (sebagian tetap approved oleh sekolah saja)
+    // - Dari yang direview: 60% diputus TALENTA, 40% diputus SUPER_ADMIN
+    // - Approve/reject random (bisa Anda atur persentasenya)
+    // - Override boleh (bisa timpa keputusan tahap-2 sebelumnya), tapi tetap tidak wajib untuk semua
+    if (talentaRater?.id && superadmin?.id) {
+      const P_REVIEW = 0.7;          // 70% dari yang lolos sekolah akan direview tahap-2
+      const P_TALENTA = 0.6;         // 60% keputusan tahap-2 oleh TALENTA, 40% oleh SUPER_ADMIN
+      const P_APPROVE = 0.6;         // random approve/reject pada tahap-2
+      const P_OVERRIDE_EXTRA = 0.35; // peluang ada 1x timpa lagi setelah keputusan pertama
+
+      async function applyDecision(params: {
+        submissionId: string;
+        actorId: string;
+        actorScope: DecisionScope;
+        action: "APPROVE" | "REJECT";
+        label: string;
+      }) {
+        const { submissionId, actorId, actorScope, action, label } = params;
+
+        const base = await prisma.talentSubmission.findUnique({
+          where: { id: submissionId },
+          select: { userScore: true, tagScore: true, jenisScore: true },
+        });
+        if (!base) return;
+
+        if (action === "APPROVE") {
+          const adminScore = randInt(0, 100);
+          const computedScore = computeScore({
+            userScore: base.userScore ?? 0,
+            tagScore: base.tagScore ?? 0,
+            jenisScore: base.jenisScore ?? 0,
+            adminScore,
+          });
+
+          await prisma.talentSubmission.update({
+            where: { id: submissionId },
+            data: {
+              // jika sebelumnya sempat REJECT oleh tahap-2, boleh balik approve
+              status: TalentSubmissionStatus.APPROVED,
+
+              adminScore,
+              computedScore,
+
+              approvedScope: actorScope,
+              approvedById: actorId,
+              approvedAt: new Date(),
+              approvalNote: `${label}: approved by ${actorScope}`,
+
+              // IMPORTANT: override reject sebelumnya
+              rejectedScope: null,
+              rejectedById: null,
+              rejectedAt: null,
+              rejectionNote: null,
+            },
+          });
+
+          await prisma.talentScoreEntry.create({
+            data: {
+              submissionId,
+              type: ScoreEntryType.APPROVAL_SCORE,
+              points: Math.round(adminScore),
+              createdById: actorId,
+              note: `${label}: APPROVAL_SCORE by ${actorScope}`,
+            },
+          });
+        } else {
+          await prisma.talentSubmission.update({
+            where: { id: submissionId },
+            data: {
+              status: TalentSubmissionStatus.REJECTED,
+
+              rejectedScope: actorScope,
+              rejectedById: actorId,
+              rejectedAt: new Date(),
+              rejectionNote: `${label}: rejected by ${actorScope}`,
+
+              // IMPORTANT: override approve sebelumnya
+              approvedScope: null,
+              approvedById: null,
+              approvedAt: null,
+              approvalNote: null,
+
+              // reset skor final
+              adminScore: null,
+              computedScore: null,
+            },
+          });
+
+          await prisma.talentScoreEntry.create({
+            data: {
+              submissionId,
+              type: ScoreEntryType.ADJUSTMENT,
+              points: 0,
+              createdById: actorId,
+              note: `${label}: REJECT by ${actorScope}`,
+            },
+          });
+        }
+      }
+
+      let reviewedCount = 0;
+      let decidedByTalenta = 0;
+      let decidedBySuper = 0;
+
+      for (const submissionId of createdApprovedIds) {
+        // 1) tidak semua direview tahap-2
+        if (Math.random() > P_REVIEW) continue;
+        reviewedCount++;
+
+        // 2) pilih aktor keputusan (60/40)
+        const pickTalenta = Math.random() < P_TALENTA;
+        const actorId1 = pickTalenta ? talentaRater.id : superadmin.id;
+        const actorScope1 = pickTalenta ? DecisionScope.TALENTA : DecisionScope.SUPER_ADMIN;
+        if (pickTalenta) decidedByTalenta++;
+        else decidedBySuper++;
+
+        // 3) keputusan pertama (approve/reject random)
+        const action1: "APPROVE" | "REJECT" = Math.random() < P_APPROVE ? "APPROVE" : "REJECT";
+        await applyDecision({
+          submissionId,
+          actorId: actorId1,
+          actorScope: actorScope1,
+          action: action1,
+          label: "Seed STAGE2 #1",
+        });
+
+        // 4) optional: 1x override lagi (boleh timpa), aktor juga ikut 60/40
+        if (Math.random() < P_OVERRIDE_EXTRA) {
+          const pickTalenta2 = Math.random() < P_TALENTA;
+          const actorId2 = pickTalenta2 ? talentaRater.id : superadmin.id;
+          const actorScope2 = pickTalenta2 ? DecisionScope.TALENTA : DecisionScope.SUPER_ADMIN;
+
+          // override action random lagi (boleh sama/berlawanan)
+          const action2: "APPROVE" | "REJECT" = Math.random() < P_APPROVE ? "APPROVE" : "REJECT";
+
+          await applyDecision({
+            submissionId,
+            actorId: actorId2,
+            actorScope: actorScope2,
+            action: action2,
+            label: "Seed STAGE2 OVERRIDE #2",
+          });
+        }
+      }
+
+      console.log(
+        `✅ Review tahap-2 selesai. Direview=${reviewedCount}/${createdApprovedIds.length}, ` +
+        `decider TALENTA≈${decidedByTalenta}, SUPER_ADMIN≈${decidedBySuper} (target 60/40).`
+      );
+    } else {
+      console.log("ℹ️ Tidak ada talentaRater atau superadmin, skip review tahap-2.");
+    }
+
+  } else {
+    console.log("ℹ️ Skip talentSubmission karena master/gtk kosong");
+  }
+
+  console.log("🔐 Sinkronisasi default UserAccess untuk semua role...");
+
+  // SUPER_ADMIN
+  {
+    const superAdmins = await prisma.user.findMany({
+      where: { role: UserRole.SUPER_ADMIN },
+      select: { id: true },
+    });
+
+    for (const u of superAdmins) {
+      const exists = await prisma.userAccess.findFirst({
+        where: { userId: u.id, role: UserRole.SUPER_ADMIN, branchId: branch.id },
+        select: { id: true },
+      });
+
+      if (!exists) {
+        await prisma.userAccess.create({
+          data: {
+            userId: u.id,
+            role: UserRole.SUPER_ADMIN,
+            branchId: branch.id,
+            schoolNpsn: null,
+          },
+        });
+      }
+    }
+  }
+
+  // ADMIN_TALENTA
+  {
+    const adminsTalenta = await prisma.user.findMany({
+      where: { role: UserRole.ADMIN_TALENTA },
+      select: { id: true },
+    });
+
+    for (const u of adminsTalenta) {
+      const exists = await prisma.userAccess.findFirst({
+        where: { userId: u.id, role: UserRole.ADMIN_TALENTA, branchId: branch.id },
+        select: { id: true },
+      });
+
+      if (!exists) {
+        await prisma.userAccess.create({
+          data: {
+            userId: u.id,
+            role: UserRole.ADMIN_TALENTA,
+            branchId: branch.id,
+            schoolNpsn: null,
+          },
+        });
+      }
+    }
+  }
+
+  // ADMIN_SEKOLAH
+  {
+    const adminsSekolah = await prisma.user.findMany({
+      where: { role: UserRole.ADMIN_SEKOLAH, schoolNpsn: { not: null } },
+      select: { id: true, schoolNpsn: true },
+    });
+
+    for (const u of adminsSekolah) {
+      if (!u.schoolNpsn) continue;
+
+      const exists = await prisma.userAccess.findFirst({
+        where: {
+          userId: u.id,
+          role: UserRole.ADMIN_SEKOLAH,
+          branchId: branch.id,
+          schoolNpsn: u.schoolNpsn,
+        },
+        select: { id: true },
+      });
+
+      if (!exists) {
+        await prisma.userAccess.create({
+          data: {
+            userId: u.id,
+            role: UserRole.ADMIN_SEKOLAH,
+            branchId: branch.id,
+            schoolNpsn: u.schoolNpsn,
+          },
+        });
+      }
+    }
+  }
+
+  // USER_GTK
+  {
+    const gtkUsers = await prisma.user.findMany({
+      where: { role: UserRole.USER_GTK, schoolNpsn: { not: null } },
+      select: { id: true, schoolNpsn: true },
+    });
+
+    for (const u of gtkUsers) {
+      if (!u.schoolNpsn) continue;
+
+      const exists = await prisma.userAccess.findFirst({
+        where: {
+          userId: u.id,
+          role: UserRole.USER_GTK,
+          branchId: branch.id,
+          schoolNpsn: u.schoolNpsn,
+        },
+        select: { id: true },
+      });
+
+      if (!exists) {
+        await prisma.userAccess.create({
+          data: {
+            userId: u.id,
+            role: UserRole.USER_GTK,
+            branchId: branch.id,
+            schoolNpsn: u.schoolNpsn,
+          },
+        });
+      }
+    }
+  }
+
+  console.log("✅ Sinkronisasi UserAccess selesai");
+
+  console.log("🎉 Seed selesai.");
+}
+
+main()
+  .catch((e) => {
+    console.error("❌ Seed error:", e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+    console.log("🔌 Prisma disconnected");
+  });

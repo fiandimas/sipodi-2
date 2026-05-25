@@ -1,0 +1,645 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/**
+ * =======================
+ * ENUMS
+ * =======================
+ */
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN_TALENTA
+  ADMIN_SEKOLAH
+  USER_GTK
+}
+
+enum Gender {
+  L
+  P
+}
+
+enum SchoolLevel {
+  SMA
+  SMK
+  SLB
+}
+
+enum SchoolStatus {
+  NEGERI
+  SWASTA
+}
+
+enum TalentSubmissionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ScoreEntryType {
+  CREATE_BONUS
+  APPROVAL_SCORE
+  ADJUSTMENT
+}
+
+enum PasswordAlgo {
+  SHA256
+  ARGON2ID
+}
+
+enum GtkType {
+  GURU
+  TENDIK
+  KEPALA_SEKOLAH
+  KEPALA_SEKSI
+  KEPALA_CABANG_DINAS
+}
+
+enum DecisionScope {
+  SEKOLAH
+  TALENTA
+  SUPER_ADMIN
+}
+
+/**
+ * =======================
+ * MASTER DATA
+ * =======================
+ */
+
+model Branch {
+  id         String            @id @default(cuid())
+  name       String
+  city       String
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+  letterhead BranchLetterhead?
+  schools    School[]
+  users      User[]
+
+  userAccesses UserAccess[] @relation("user_access_branch")
+
+  @@map("branches")
+}
+
+model School {
+  npsn       String            @id
+  name       String
+  level      SchoolLevel
+  status     SchoolStatus
+  city       String
+  headName   String?
+  headNip    String?
+  headRank   String?
+  branchId   String
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+  gtks       Gtk[]
+  letterhead SchoolLetterhead?
+  branch     Branch            @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  users      User[]
+
+  userAccesses UserAccess[] @relation("user_access_school")
+
+  @@index([branchId])
+  @@map("schools")
+}
+
+model Gtk {
+  nik       String    @id
+  name      String
+  email     String?   @unique
+  nuptk     String?
+  nip       String?
+  gender    Gender?
+  birthDate DateTime?
+  type      GtkType?
+
+  mapel String?
+
+  schoolNpsn String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  photoUrl   String?
+
+  school      School             @relation(fields: [schoolNpsn], references: [npsn], onDelete: Cascade)
+  submissions TalentSubmission[]
+  user        User?
+
+  @@index([schoolNpsn])
+  @@map("gtks")
+}
+
+model User {
+  id       String   @id @default(cuid())
+  username String   @unique
+  password String
+  name     String
+  role     UserRole
+  isActive Boolean  @default(true)
+
+  branchId   String?
+  schoolNpsn String?
+  gtkNik     String? @unique
+
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  passwordAlgo PasswordAlgo @default(SHA256)
+
+  scoreEntries TalentScoreEntry[]
+
+  approvedSubmissions TalentSubmission[] @relation("approved_by_user")
+  rejectedSubmissions TalentSubmission[] @relation("rejected_by_user")
+
+  superApprovedSubmissions TalentSubmission[] @relation("super_approved_by_user")
+  superRejectedSubmissions TalentSubmission[] @relation("super_rejected_by_user")
+
+  branch Branch? @relation(fields: [branchId], references: [id], onDelete: SetNull)
+  gtk    Gtk?    @relation(fields: [gtkNik], references: [nik], onDelete: SetNull)
+  school School? @relation(fields: [schoolNpsn], references: [npsn], onDelete: SetNull)
+
+  talentFields UserTalentField[]
+
+  access UserAccess[]
+
+  @@index([role])
+  @@index([branchId])
+  @@index([schoolNpsn])
+  @@map("users")
+}
+
+model UserAccess {
+  id String @id @default(cuid())
+
+  userId String
+  role   UserRole
+
+  // scope untuk ADMIN_SEKOLAH
+  schoolNpsn String?
+  branchId   String?
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  school School? @relation("user_access_school", fields: [schoolNpsn], references: [npsn], onDelete: Cascade)
+  branch Branch? @relation("user_access_branch", fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, role, schoolNpsn])
+  @@unique([userId, role, branchId])
+  @@index([userId])
+  @@index([role])
+  @@index([schoolNpsn])
+  @@index([branchId])
+  @@map("user_access")
+}
+
+/**
+ * =======================
+ * LETTERHEAD (KOP)
+ * =======================
+ */
+
+model BranchLetterhead {
+  branchId   String   @id
+  title      String
+  address    String?
+  phone      String?
+  logoPath   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  signerName String?
+  signerNip  String?
+  signerRank String?
+  signerRole String?
+  email      String?
+
+  branch Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+
+  @@map("branch_letterheads")
+}
+
+model SchoolLetterhead {
+  schoolNpsn String   @id
+  title      String
+  address    String?
+  phone      String?
+  logoPath   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  school School @relation(fields: [schoolNpsn], references: [npsn], onDelete: Cascade)
+
+  @@map("school_letterheads")
+}
+
+/**
+ * =======================
+ * TALENT MASTER (HIRARKI)
+ * =======================
+ */
+
+model TalentTypeCategory {
+  typeId     String
+  categoryId String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  type     TalentType     @relation(fields: [typeId], references: [id], onDelete: Cascade)
+  category TalentCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([typeId, categoryId])
+  @@index([typeId])
+  @@index([categoryId])
+  @@map("talent_type_categories")
+}
+
+model TalentTypeSubCategory {
+  typeId        String
+  subCategoryId String
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+
+  type        TalentType        @relation(fields: [typeId], references: [id], onDelete: Cascade)
+  subCategory TalentSubCategory @relation(fields: [subCategoryId], references: [id], onDelete: Cascade)
+
+  @@id([typeId, subCategoryId])
+  @@index([typeId])
+  @@index([subCategoryId])
+  @@map("talent_type_subcategories")
+}
+
+model TalentField {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  categories TalentCategory[]
+  typeFields TalentTypeField[]
+  admins     UserTalentField[]
+
+  submissionFields TalentSubmissionField[]
+
+  @@map("talent_fields")
+}
+
+model UserTalentField {
+  userId  String
+  fieldId String
+
+  createdAt DateTime @default(now())
+
+  user  User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  field TalentField @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+
+  @@id([userId, fieldId])
+  @@map("user_talent_fields")
+}
+
+model TalentType {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  submissions TalentSubmission[]
+  typeFields  TalentTypeField[]
+  scopedTags  TalentTypeSubCategoryTag[]
+
+  typeCategories    TalentTypeCategory[]
+  typeSubCategories TalentTypeSubCategory[]
+
+  @@map("talent_types")
+}
+
+model TalentTypeField {
+  typeId    String
+  fieldId   String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  type  TalentType  @relation(fields: [typeId], references: [id], onDelete: Cascade)
+  field TalentField @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+
+  @@id([typeId, fieldId])
+  @@map("talent_type_fields")
+}
+
+model TalentCategory {
+  id        String   @id @default(cuid())
+  fieldId   String
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  field          TalentField          @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+  subCategories  TalentSubCategory[]
+  typeCategories TalentTypeCategory[]
+
+  submissionCategories TalentSubmissionCategory[]
+
+  @@unique([fieldId, name])
+  @@map("talent_categories")
+}
+
+model TalentSubCategory {
+  id         String   @id @default(cuid())
+  categoryId String
+  name       String
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  category   TalentCategory             @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  scopedTags TalentTypeSubCategoryTag[]
+
+  typeSubCategories TalentTypeSubCategory[]
+
+  submissionSubCategories TalentSubmissionSubCategory[]
+
+  @@unique([categoryId, name])
+  @@index([categoryId])
+  @@map("talent_subcategories")
+}
+
+model TalentTag {
+  id        String   @id @default(cuid())
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scopes      TalentTypeSubCategoryTag[]
+  submissions TalentSubmission[]
+
+  @@unique([name])
+  @@map("talent_tags")
+}
+
+model TalentTypeSubCategoryTag {
+  id            String   @id @default(cuid())
+  typeId        String
+  subCategoryId String
+  tagId         String
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+
+  type        TalentType        @relation(fields: [typeId], references: [id], onDelete: Cascade)
+  subCategory TalentSubCategory @relation(fields: [subCategoryId], references: [id], onDelete: Cascade)
+  tag         TalentTag         @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([typeId, subCategoryId, tagId])
+  @@index([subCategoryId])
+  @@index([typeId])
+  @@index([tagId])
+  @@map("talent_type_subcategory_tags")
+}
+
+model TalentSubmissionField {
+  submissionId String
+  fieldId      String
+  createdAt    DateTime @default(now())
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  field      TalentField      @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+
+  @@id([submissionId, fieldId])
+  @@index([fieldId])
+  @@map("talent_submission_fields")
+}
+
+model TalentSubmissionCategory {
+  submissionId String
+  categoryId   String
+  createdAt    DateTime @default(now())
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  category   TalentCategory   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([submissionId, categoryId])
+  @@index([categoryId])
+  @@map("talent_submission_categories")
+}
+
+model TalentSubmissionSubCategory {
+  submissionId  String
+  subCategoryId String
+  createdAt     DateTime @default(now())
+
+  submission  TalentSubmission  @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  subCategory TalentSubCategory @relation(fields: [subCategoryId], references: [id], onDelete: Cascade)
+
+  @@id([submissionId, subCategoryId])
+  @@index([subCategoryId])
+  @@map("talent_submission_subcategories")
+}
+
+/**
+ * =======================
+ * TALENT SUBMISSION (TRANSAKSI)
+ * =======================
+ */
+
+model TalentSubmission {
+  id String @id @default(cuid())
+
+  gtkNik String
+  typeId String
+
+  fields        TalentSubmissionField[]
+  categories    TalentSubmissionCategory[]
+  subCategories TalentSubmissionSubCategory[]
+
+  tags          TalentTag[]
+  tagsOtherText String[]    @default([])
+
+  userScore     Int?
+  tagScore      Int?
+  jenisScore    Float?
+  adminScore    Float?
+  computedScore Float?
+
+  activityName  String
+  description   String?
+  linkPendukung String?
+  organizer     String?
+
+  status TalentSubmissionStatus @default(PENDING)
+
+  /**
+   * Keputusan “utama” (dipakai untuk sekolah / talenta).
+   * Untuk Opsi B, scope menentukan siapa yang memutuskan.
+   */
+  approvedById  String?
+  approvedAt    DateTime?
+  approvalNote  String?
+  approvedScope DecisionScope?
+
+  rejectedById  String?
+  rejectedAt    DateTime?
+  rejectionNote String?
+  rejectedScope DecisionScope?
+
+  /**
+   * Keputusan Super Admin (level audit/final).
+   * Tidak mengganggu field approvedById/rejectedById yang sudah dipakai sekolah/talenta.
+   */
+  superApprovedById String?
+  superApprovedAt   DateTime?
+  superApprovalNote String?
+
+  superRejectedById  String?
+  superRejectedAt    DateTime?
+  superRejectionNote String?
+
+  gtk  Gtk        @relation(fields: [gtkNik], references: [nik], onDelete: Cascade)
+  type TalentType @relation(fields: [typeId], references: [id], onDelete: Cascade)
+
+  fieldOtherText       String[] @default([])
+  categoryOtherText    String[] @default([])
+  subCategoryOtherText String[] @default([])
+
+  approvedBy User? @relation("approved_by_user", fields: [approvedById], references: [id], onDelete: SetNull)
+  rejectedBy User? @relation("rejected_by_user", fields: [rejectedById], references: [id], onDelete: SetNull)
+
+  superApprovedBy User? @relation("super_approved_by_user", fields: [superApprovedById], references: [id], onDelete: SetNull)
+  superRejectedBy User? @relation("super_rejected_by_user", fields: [superRejectedById], references: [id], onDelete: SetNull)
+
+  files        TalentFile[]
+  scoreEntries TalentScoreEntry[]
+
+  trainingDetail          TalentTrainingDetail?
+  speakerDetail           TalentSpeakerDetail?
+  competitionPartDetail   TalentCompetitionParticipantDetail?
+  competitionMentorDetail TalentCompetitionMentorDetail?
+  interestDetail          TalentInterestDetail?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([gtkNik])
+  @@index([status])
+  @@index([typeId])
+  @@index([computedScore])
+  @@index([approvedScope])
+  @@index([rejectedScope])
+  @@index([superApprovedById])
+  @@index([superRejectedById])
+  @@map("talent_submissions")
+}
+
+model TalentFile {
+  id           String   @id @default(cuid())
+  submissionId String
+  originalName String
+  mimeType     String
+  sizeBytes    Int
+  createdAt    DateTime @default(now())
+  data         Bytes
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@index([submissionId])
+  @@map("talent_files")
+}
+
+model TalentScoreEntry {
+  id           String         @id @default(cuid())
+  submissionId String
+  type         ScoreEntryType
+  points       Int
+  createdById  String?
+  note         String?
+  createdAt    DateTime       @default(now())
+
+  createdBy  User?            @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@index([submissionId])
+  @@index([type])
+  @@map("talent_score_entries")
+}
+
+/**
+ * =======================
+ * TALENT DETAIL PER JENIS
+ * =======================
+ */
+
+model TalentTrainingDetail {
+  id           String   @id @default(cuid())
+  submissionId String   @unique
+  activityName String
+  organizer    String?
+  startDate    DateTime
+  durationDays Int?
+  description  String?
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@map("talent_training_details")
+}
+
+model TalentSpeakerDetail {
+  id           String   @id @default(cuid())
+  submissionId String   @unique
+  eventName    String
+  organizer    String?
+  startDate    DateTime
+  durationDays Int?
+  topic        String?
+  description  String?
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@map("talent_speaker_details")
+}
+
+model TalentCompetitionParticipantDetail {
+  id              String   @id @default(cuid())
+  submissionId    String   @unique
+  competitionName String
+  level           String?
+  achievement     String?
+  organizer       String?
+  startDate       DateTime
+  durationDays    Int?
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@map("talent_competition_participant_details")
+}
+
+model TalentCompetitionMentorDetail {
+  id              String   @id @default(cuid())
+  submissionId    String   @unique
+  competitionName String
+  level           String?
+  organizer       String?
+  startDate       DateTime
+  durationDays    Int?
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@map("talent_competition_mentor_details")
+}
+
+model TalentInterestDetail {
+  id           String  @id @default(cuid())
+  submissionId String  @unique
+  interestName String
+  description  String?
+
+  submission TalentSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@map("talent_interest_details")
+}

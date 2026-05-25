@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  /* Base badge */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium whitespace-nowrap;
+  }
+
+  /* Jenis Karyawan */
+  .badge-guru {
+    background-color: hsl(193 95% 92%);
+    color: hsl(193 95% 35%);
+  }
+
+  .badge-tendik {
+    background-color: hsl(175 75% 92%);
+    color: hsl(175 75% 30%);
+  }
+
+  .badge-kepala {
+    background-color: hsl(30 90% 92%);
+    color: hsl(30 85% 40%);
+  }
+
+  /* Dark mode */
+  .dark .badge-guru {
+    background-color: hsl(193 95% 25%);
+    color: hsl(193 95% 90%);
+  }
+
+  .dark .badge-tendik {
+    background-color: hsl(175 75% 25%);
+    color: hsl(175 75% 90%);
+  }
+
+  .dark .badge-kepala {
+    background-color: hsl(30 85% 25%);
+    color: hsl(30 85% 90%);
+  }
+}
+
+@layer components {
+  /* =========================
+     BASE BADGE (OUTLINE)
+  ========================== */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium border;
+  }
+
+  .badge-outline {
+    @apply bg-transparent;
+  }
+
+  /* =========================
+     BADGE VARIANTS
+  ========================== */
+  .badge-primary {
+    border-color: hsl(var(--primary));
+    color: hsl(var(--primary));
+  }
+
+  .badge-secondary {
+    border-color: hsl(var(--border));
+    color: hsl(var(--muted-foreground));
+  }
+
+  .badge-info {
+    border-color: hsl(193 95% 45%);
+    color: hsl(193 95% 45%);
+  }
+
+  .badge-success {
+    border-color: hsl(142 71% 45%);
+    color: hsl(142 71% 45%);
+  }
+
+  .badge-warning {
+    border-color: hsl(38 92% 50%);
+    color: hsl(38 92% 50%);
+  }
+
+  .badge-danger {
+    border-color: hsl(var(--destructive));
+    color: hsl(var(--destructive));
+  }
+
+  /* =========================
+     ICON INSIDE BADGE
+  ========================== */
+  .badge-icon {
+    @apply w-3.5 h-3.5;
+  }
+
+  .icon-primary {
+    color: hsl(var(--primary));
+  }
+
+  .icon-info {
+    color: hsl(193 95% 45%);
+  }
+
+  .icon-success {
+    color: hsl(142 71% 45%);
+  }
+
+  .icon-warning {
+    color: hsl(38 92% 50%);
+  }
+
+  .icon-danger {
+    color: hsl(var(--destructive));
+  }
+}
+
+
+@layer base {
+  :root {
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --background: 190 100% 98%;
+    --foreground: 190 100% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 190 100% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 190 100% 10%;
+    --primary: 190 100% 40%;
+    --primary-foreground: 190 100% 98%;
+    --secondary: 190 20% 96%;
+    --secondary-foreground: 190 100% 10%;
+    --muted: 190 20% 96%;
+    --muted-foreground: 190 15% 45%;
+    --accent: 190 100% 95%;
+    --accent-foreground: 190 100% 35%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 193 20% 90%;
+    --input: 193 20% 90%;
+    --ring: 193 95% 45%;
+    --chart-1: 193 95% 45%;
+    --chart-2: 175 75% 45%;
+    --chart-3: 193 75% 65%;
+    --chart-4: 175 60% 70%;
+    --chart-5: 193 40% 85%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 193 95% 15%;
+    --sidebar-primary: 193 95% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 193 95% 96%;
+    --sidebar-accent-foreground: 193 95% 35%;
+    --sidebar-border: 193 20% 92%;
+    --sidebar-ring: 193 95% 45%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@media print {
+  @page { size: A4; margin: 20mm; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+}
+
+.toaster {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}
+
+[data-sonner-toaster] {
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+}

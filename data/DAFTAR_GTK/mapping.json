@@ -1,0 +1,682 @@
+[
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SLB/SLB EKA MANDIRI BATU.xlsx",
+    "schoolNpsn": "20539425",
+    "note": "SLB EKA MANDIRI BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SLB/SLB NEGERI BATU.xlsx",
+    "schoolNpsn": "69919890",
+    "note": "SLB NEGERI BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA AL HIKMAH.xlsx",
+    "schoolNpsn": "69980294",
+    "note": "SMA AL HIKMAH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA AL IZZA.xlsx",
+    "schoolNpsn": "69727602",
+    "note": "SMA AL IZZA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA HASYIM ASYARI.xlsx",
+    "schoolNpsn": "20536831",
+    "note": "SMA HASYIM ASYARI"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA IMMANUEL BATU.xlsx",
+    "schoolNpsn": "20536843",
+    "note": "SMA IMMANUEL BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA ISLAM BATU.xlsx",
+    "schoolNpsn": "20536844",
+    "note": "SMA ISLAM BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA MUHAMMADIYAH 3 BATU.xlsx",
+    "schoolNpsn": "20536829",
+    "note": "SMA MUHAMMADIYAH 3 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMA PGRI BATU.xlsx",
+    "schoolNpsn": "20536816",
+    "note": "SMA PGRI BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMAN 1 BATU.xlsx",
+    "schoolNpsn": "20536817",
+    "note": "SMAN 1 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMAN 2 BATU.xlsx",
+    "schoolNpsn": "20536818",
+    "note": "SMAN 2 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMA/SMAN 3 BATU.xlsx",
+    "schoolNpsn": "69947051",
+    "note": "SMAN 3 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK 17.xlsx",
+    "schoolNpsn": "20536819",
+    "note": "SMK 17"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK AMANAH HUSADA.xlsx",
+    "schoolNpsn": "69774780",
+    "note": "SMK AMANAH HUSADA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK BHINEKA TUNGGAL IKA.xlsx",
+    "schoolNpsn": "69752269",
+    "note": "SMK BHINEKA TUNGGAL IKA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK BRAWIJAYA.xlsx",
+    "schoolNpsn": "20536823",
+    "note": "SMK BRAWIJAYA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK EDIT.xlsx",
+    "schoolNpsn": "20536820",
+    "note": "SMK EDIT"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK ISLAM.xlsx",
+    "schoolNpsn": "20536821",
+    "note": "SMK ISLAM"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK MA_ARIF.xlsx",
+    "schoolNpsn": "20536824",
+    "note": "SMK MA_ARIF"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK MUHAMMADIYAH 1.xlsx",
+    "schoolNpsn": "20536825",
+    "note": "SMK MUHAMMADIYAH 1"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK PUTIKECWARA.xlsx",
+    "schoolNpsn": "20536828",
+    "note": "SMK PUTIKECWARA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMK WIYATA HUSADA.xlsx",
+    "schoolNpsn": "69727599",
+    "note": "SMK WIYATA HUSADA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMKN 1 BATU.xlsx",
+    "schoolNpsn": "20536822",
+    "note": "SMKN 1 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMKN 2 BATU.xlsx",
+    "schoolNpsn": "20536826",
+    "note": "SMKN 2 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA BATU/SMK/SMKN 3 BATU.xlsx",
+    "schoolNpsn": "20536827",
+    "note": "SMKN 3 BATU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SDLB SUMBER DHARMA.xlsx",
+    "schoolNpsn": "20534066",
+    "note": "SDLB SUMBER DHARMA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB A,B,D NEGERI KEDUNGKANDANG KOTA MALANG.xlsx",
+    "schoolNpsn": "20540209",
+    "note": "SLB A,B,D NEGERI KEDUNGKANDANG KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB AUTIS LABORATORIUM UM MALANG.xlsx",
+    "schoolNpsn": "69969638",
+    "note": "SLB AUTIS LABORATORIUM UM MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB AUTISME RIVER KIDS.xlsx",
+    "schoolNpsn": "20539435",
+    "note": "SLB AUTISME RIVER KIDS"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB BHAKTI LUHUR.xlsx",
+    "schoolNpsn": "20533713",
+    "note": "SLB BHAKTI LUHUR"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB C AUTIS NEGERI KEDUNGKANDANG KOTA MALANG.xlsx",
+    "schoolNpsn": "20533636",
+    "note": "SLB C AUTIS NEGERI KEDUNGKANDANG KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB PUTRA JAYA MALANG.xlsx",
+    "schoolNpsn": "20534068",
+    "note": "SLB PUTRA JAYA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB SATHITEN.xlsx",
+    "schoolNpsn": "70028347",
+    "note": "SLB SATHITEN"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB SUMBER DHARMA.xlsx",
+    "schoolNpsn": "69861155",
+    "note": "SLB SUMBER DHARMA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB YAYASAN PUTRA PANCASILA.xlsx",
+    "schoolNpsn": "20533659",
+    "note": "SLB YAYASAN PUTRA PANCASILA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB YPAC KOTA MALANG.xlsx",
+    "schoolNpsn": "69979343",
+    "note": "SLB YPAC KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLB-B YPTB MALANG.xlsx",
+    "schoolNpsn": "20533744",
+    "note": "SLB-B YPTB MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SLBS BCG IDAYU.xlsx",
+    "schoolNpsn": "20533730",
+    "note": "SLBS BCG IDAYU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SLB/SMALB BCG SUMBER DHARMA.xlsx",
+    "schoolNpsn": "69861155",
+    "note": "SMALB BCG SUMBER DHARMA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/Sekolah Menengah Atas Bina Bangsa School Malang.xlsx",
+    "schoolNpsn": "69888823",
+    "note": "Sekolah Menengah Atas Bina Bangsa School Malang"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA IBNU SINA.xlsx",
+    "schoolNpsn": "20533628",
+    "note": "SMA IBNU SINA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA ISLAM NUSANTARA.xlsx",
+    "schoolNpsn": "20533618",
+    "note": "SMA ISLAM NUSANTARA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA ISLAM SABILILLAH.xlsx",
+    "schoolNpsn": "69859740",
+    "note": "SMA ISLAM SABILILLAH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA ISLAM SABILURROSYAD.xlsx",
+    "schoolNpsn": "69971884",
+    "note": "SMA ISLAM SABILURROSYAD"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA KRISTEN SETIA BUDI.xlsx",
+    "schoolNpsn": "20533611",
+    "note": "SMA KRISTEN SETIA BUDI"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA MUHAMMADIYAH 1 MALANG.xlsx",
+    "schoolNpsn": "20533608",
+    "note": "SMA MUHAMMADIYAH 1 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 1 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533660",
+    "note": "SMA NEGERI 1 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 10 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533661",
+    "note": "SMA NEGERI 10 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 2 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533664",
+    "note": "SMA NEGERI 2 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 3 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533665",
+    "note": "SMA NEGERI 3 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 4 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533667",
+    "note": "SMA NEGERI 4 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 5 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533653",
+    "note": "SMA NEGERI 5 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 6 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533652",
+    "note": "SMA NEGERI 6 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 7 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533639",
+    "note": "SMA NEGERI 7 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 8 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533640",
+    "note": "SMA NEGERI 8 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI 9 KOTA MALANG.xlsx",
+    "schoolNpsn": "20533641",
+    "note": "SMA NEGERI 9 KOTA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NEGERI TARUNA NALA JAWA TIMUR.xlsx",
+    "schoolNpsn": "69964214",
+    "note": "SMA NEGERI TARUNA NALA JAWA TIMUR"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA NURUL MUTTAQIN ALBAROKHAH.xlsx",
+    "schoolNpsn": "69849409",
+    "note": "SMA NURUL MUTTAQIN ALBAROKHAH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA PJ GLOBAL SCHOOL.xlsx",
+    "schoolNpsn": "69965398",
+    "note": "SMA PJ GLOBAL SCHOOL"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA PLUS AZ-ZAHROH.xlsx",
+    "schoolNpsn": "69968203",
+    "note": "SMA PLUS AZ-ZAHROH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA SWASTA KATOLIK COR JESU.xlsx",
+    "schoolNpsn": "20533638",
+    "note": "SMA SWASTA KATOLIK COR JESU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA TERPADU DARUL FALAH.xlsx",
+    "schoolNpsn": "70052570",
+    "note": "SMA TERPADU DARUL FALAH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMA Wesley.xlsx",
+    "schoolNpsn": "69935475",
+    "note": "SMA Wesley"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS ADVENT DWI ABDI.xlsx",
+    "schoolNpsn": "20540211",
+    "note": "SMAS ADVENT DWI ABDI"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS BAHRUL MAGHFIROH.xlsx",
+    "schoolNpsn": "69755783",
+    "note": "SMAS BAHRUL MAGHFIROH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS BRAWIJAYA SMART SCHOOL.xlsx",
+    "schoolNpsn": "20554539",
+    "note": "SMAS BRAWIJAYA SMART SCHOOL"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS CHARIS.xlsx",
+    "schoolNpsn": "20554487",
+    "note": "SMAS CHARIS"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS ISLAM BAITURROHMAH.xlsx",
+    "schoolNpsn": "20533630",
+    "note": "SMAS ISLAM BAITURROHMAH"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS ISLAM.xlsx",
+    "schoolNpsn": "20533630",
+    "note": "SMAS ISLAM"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS K KOLESE ST YUSUP.xlsx",
+    "schoolNpsn": "20533654",
+    "note": "SMAS K KOLESE ST YUSUP"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS KATOLIK FRATERAN.xlsx",
+    "schoolNpsn": "20533634",
+    "note": "SMAS KATOLIK FRATERAN"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS KATOLIK SANTA MARIA.xlsx",
+    "schoolNpsn": "20533655",
+    "note": "SMAS KATOLIK SANTA MARIA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS KATOLIK ST ALBERTUS.xlsx",
+    "schoolNpsn": "20533635",
+    "note": "SMAS KATOLIK ST ALBERTUS"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS KERTANEGARA.xlsx",
+    "schoolNpsn": "20533622",
+    "note": "SMAS KERTANEGARA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS KRISTEN KALAM KUDUS.xlsx",
+    "schoolNpsn": "20533621",
+    "note": "SMAS KRISTEN KALAM KUDUS"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS KRISTEN PETRA.xlsx",
+    "schoolNpsn": "20533612",
+    "note": "SMAS KRISTEN PETRA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS LABORATORIUM UM.xlsx",
+    "schoolNpsn": "20533610",
+    "note": "SMAS LABORATORIUM UM"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS NASIONAL.xlsx",
+    "schoolNpsn": "20533607",
+    "note": "SMAS NASIONAL"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS PANJURA.xlsx",
+    "schoolNpsn": "20533613",
+    "note": "SMAS PANJURA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS PGRI 6.xlsx",
+    "schoolNpsn": "20533614",
+    "note": "SMAS PGRI 6"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS SHALAHUDIN.xlsx",
+    "schoolNpsn": "20533615",
+    "note": "SMAS SHALAHUDIN"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS SURYA BUANA.xlsx",
+    "schoolNpsn": "20577541",
+    "note": "SMAS SURYA BUANA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS TAMAN HARAPAN.xlsx",
+    "schoolNpsn": "20533617",
+    "note": "SMAS TAMAN HARAPAN"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS TAMAN MADYA.xlsx",
+    "schoolNpsn": "20540217",
+    "note": "SMAS TAMAN MADYA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS WIDYA GAMA.xlsx",
+    "schoolNpsn": "20533620",
+    "note": "SMAS WIDYA GAMA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMA/SMAS WISNUWARDHANA.xlsx",
+    "schoolNpsn": "20533637",
+    "note": "SMAS WISNUWARDHANA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK AL AZHAR.xlsx",
+    "schoolNpsn": "69991296",
+    "note": "SMK AL AZHAR"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK ARDJUNA 2.xlsx",
+    "schoolNpsn": "20533649",
+    "note": "SMK ARDJUNA 2"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK BAITUL MAKMUR.xlsx",
+    "schoolNpsn": "20577372",
+    "note": "SMK BAITUL MAKMUR"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK BHAKTI LUHUR.xlsx",
+    "schoolNpsn": "20533646",
+    "note": "SMK BHAKTI LUHUR"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK BINA BANGSA MALANG.xlsx",
+    "schoolNpsn": "20533648",
+    "note": "SMK BINA BANGSA MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK BINA CENDIKA.xlsx",
+    "schoolNpsn": "20539748",
+    "note": "SMK BINA CENDIKA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK COR JESU.xlsx",
+    "schoolNpsn": "20533823",
+    "note": "SMK COR JESU"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK EL HAYAT.xlsx",
+    "schoolNpsn": "20583974",
+    "note": "SMK EL HAYAT"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK FARMASI MAHARANI.xlsx",
+    "schoolNpsn": "20571087",
+    "note": "SMK FARMASI MAHARANI"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK GRAFIKA KARYA NASIONAL.xlsx",
+    "schoolNpsn": "20533651",
+    "note": "SMK GRAFIKA KARYA NASIONAL"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK INDOTEKNIKA.xlsx",
+    "schoolNpsn": "69888531",
+    "note": "SMK INDOTEKNIKA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK KESEHATAN ADI HUSADA.xlsx",
+    "schoolNpsn": "69755782",
+    "note": "SMK KESEHATAN ADI HUSADA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK KESEHATAN KENDEDES.xlsx",
+    "schoolNpsn": "69854821",
+    "note": "SMK KESEHATAN KENDEDES"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK MUHAMMADIYAH 1 MALANG.xlsx",
+    "schoolNpsn": "20533811",
+    "note": "SMK MUHAMMADIYAH 1 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK MUHAMMADIYAH 2 MALANG.xlsx",
+    "schoolNpsn": "20533643",
+    "note": "SMK MUHAMMADIYAH 2 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK NASIONAL MEDIA CENTER.xlsx",
+    "schoolNpsn": "69931836",
+    "note": "SMK NASIONAL MEDIA CENTER"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK NASIONAL.xlsx",
+    "schoolNpsn": "20533812",
+    "note": "SMK NASIONAL"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PEKERJAAN UMUM.xlsx",
+    "schoolNpsn": "20533821",
+    "note": "SMK PEKERJAAN UMUM"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PETRA.xlsx",
+    "schoolNpsn": "20533822",
+    "note": "SMK PETRA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PGRI 2.xlsx",
+    "schoolNpsn": "20533809",
+    "note": "SMK PGRI 2"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PGRI 3.xlsx",
+    "schoolNpsn": "20533808",
+    "note": "SMK PGRI 3"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PGRI 6.xlsx",
+    "schoolNpsn": "20533795",
+    "note": "SMK PGRI 6"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PGRI 7.xlsx",
+    "schoolNpsn": "20539752",
+    "note": "SMK PGRI 7"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PRAJNAPARAMITA.xlsx",
+    "schoolNpsn": "20533797",
+    "note": "SMK PRAJNAPARAMITA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK PUTRA INDONESIA.xlsx",
+    "schoolNpsn": "20533798",
+    "note": "SMK PUTRA INDONESIA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK SHALAHUDIN MALANG.xlsx",
+    "schoolNpsn": "20533799",
+    "note": "SMK SHALAHUDIN MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK SRIWEDARI.xlsx",
+    "schoolNpsn": "20533800",
+    "note": "SMK SRIWEDARI"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK TARUNA BHAKTI.xlsx",
+    "schoolNpsn": "20533802",
+    "note": "SMK TARUNA BHAKTI"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK TELKOM.xlsx",
+    "schoolNpsn": "20533803",
+    "note": "SMK TELKOM"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK TUMAPEL.xlsx",
+    "schoolNpsn": "20533804",
+    "note": "SMK TUMAPEL"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK TUNAS BANGSA.xlsx",
+    "schoolNpsn": "20540219",
+    "note": "SMK TUNAS BANGSA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK WASKITA DHARMA.xlsx",
+    "schoolNpsn": "20533644",
+    "note": "SMK WASKITA DHARMA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK WIDYAGAMA.xlsx",
+    "schoolNpsn": "20559083",
+    "note": "SMK WIDYAGAMA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMK WISNU WARDHANA.xlsx",
+    "schoolNpsn": "20533805",
+    "note": "SMK WISNU WARDHANA"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 1 MALANG.xlsx",
+    "schoolNpsn": "20533813",
+    "note": "SMKN 1 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 10 MALANG.xlsx",
+    "schoolNpsn": "20539749",
+    "note": "SMKN 10 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 11 MALANG.xlsx",
+    "schoolNpsn": "20548806",
+    "note": "SMKN 11 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 12 MALANG.xlsx",
+    "schoolNpsn": "20548807",
+    "note": "SMKN 12 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 13 MALANG.xlsx",
+    "schoolNpsn": "69758447",
+    "note": "SMKN 13 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 2 MALANG.xlsx",
+    "schoolNpsn": "20533814",
+    "note": "SMKN 2 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 3 MALANG.xlsx",
+    "schoolNpsn": "20533815",
+    "note": "SMKN 3 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 4 MALANG.xlsx",
+    "schoolNpsn": "20533816",
+    "note": "SMKN 4 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 5 MALANG.xlsx",
+    "schoolNpsn": "20533817",
+    "note": "SMKN 5 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 6 MALANG.xlsx",
+    "schoolNpsn": "20533818",
+    "note": "SMKN 6 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 7 MALANG.xlsx",
+    "schoolNpsn": "20533819",
+    "note": "SMKN 7 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 8 MALANG.xlsx",
+    "schoolNpsn": "20539750",
+    "note": "SMKN 8 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKN 9 MALANG.xlsx",
+    "schoolNpsn": "20539751",
+    "note": "SMKN 9 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKS KARTIKA IV 1 MALANG.xlsx",
+    "schoolNpsn": "20533668",
+    "note": "SMKS KARTIKA IV 1 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKS YP 17 1 MALANG.xlsx",
+    "schoolNpsn": "20533806",
+    "note": "SMKS YP 17 1 MALANG"
+  },
+  {
+    "file": "data/DAFTAR_GTK/KOTA MALANG/SMK/SMKS YP 17 2 MALANG.xlsx",
+    "schoolNpsn": "20533807",
+    "note": "SMKS YP 17 2 MALANG"
+  }
+]

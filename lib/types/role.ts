@@ -1,0 +1,1 @@
+export type UserRole = "super admin" | "admin talenta" | "admin sekolah" | "user"
