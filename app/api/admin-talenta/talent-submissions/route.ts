@@ -54,6 +54,7 @@ export async function GET(req: NextRequest) {
     .map((x) => x.trim())
     .filter(Boolean)
     .filter((x) => !JUARA.has(x));
+  const schoolIds = searchParams.getAll("school").map((x) => x.trim()).filter(Boolean);
 
   const juaraValue = JUARA.has(juara) ? juara : "";
 
@@ -122,6 +123,16 @@ export async function GET(req: NextRequest) {
         )
       )`
     );
+  }
+
+  if (schoolIds.length > 0) {
+    conds.push(Prisma.sql`
+      ts."gtkNik" IN (
+        SELECT g."nik"
+        FROM "gtks" g
+        WHERE g."schoolNpsn" IN (${Prisma.join(schoolIds)})
+      )
+    `);
   }
 
   // ✅ filter uiStatus (TERVERIFIKASI = approved sekolah)

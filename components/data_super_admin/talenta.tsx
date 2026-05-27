@@ -148,6 +148,8 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
   const [kategori, setKategori] = useState<string | "all">("all");
   const [jenisTalenta, setJenisTalenta] = useState<string | "all">("all");
 
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
+
   const JENIS_TALENTA_ORDER: Record<string, number> = {
     "Peserta (Pelatihan / Workshop / Seminar / Upskilling)": 1,
     "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)": 2,
@@ -168,6 +170,7 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
   const [tagTexts, setTagTexts] = useState<string[]>([]);
 
   const [tagOpen, setTagOpen] = useState(false);
+  const [schoolOpen, setSchoolOpen] = useState(false);
 
   // paging
   const [page, setPage] = useState(1);
@@ -197,6 +200,9 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
   // untuk menyimpan action print yang tertunda sampai user submit
   const [pendingMode, setPendingMode] = useState<null | "all" | "selected">(null);
   const [printing, setPrinting] = useState(false);
+
+  const [schoolOptions, setSchoolOptions] = useState<{ npsn: string; name: string }[]>([]);
+  const [selectedSchools, setSelectedSchools] = useState<string[]>([]);
 
   function validateTtd() {
     const name = ttdName.trim();
@@ -388,6 +394,14 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
   const loadOptions = async () => {
     const res = await fetch("/api/super-admin/talenta/option", {
       cache: "no-store",
@@ -432,15 +446,35 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
     setTagFree(json.free ?? []);
   };
 
+  // load school
+  const loadSchoolOptions = async () => {
+    try {
+      const res = await fetch("/api/super-admin/school", {
+        cache: "no-store",
+        credentials: "include",
+      });
+      if (!res.ok) return;
+
+      const json = await res.json();
+      if (!Array.isArray(json?.data)) return;
+
+      const schools = json.data as { npsn: string; name: string }[];
+      setSchoolOptions(schools)
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   useEffect(() => {
     loadOptions();
     loadTagOptions();
+    loadSchoolOptions();
   }, []);
 
   // reset page when filter changes
   useEffect(() => {
     setPage(1);
-  }, [search, scoreQ, status, kategori, jenisTalenta, tagIds, tagTexts, juara, scoreSort]);
+  }, [debouncedSearch, scoreQ, status, kategori, jenisTalenta, tagIds, tagTexts, juara, scoreSort]);
 
   // load list
   useEffect(() => {
@@ -455,7 +489,7 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
         params.set("page", String(page));
         params.set("pageSize", String(PAGESIZE));
 
-        if (search) params.set("q", search);
+        if (debouncedSearch) params.set("q", debouncedSearch);
         if (scoreQ) params.set("scoreQ", scoreQ);
         if (status !== "all") params.set("status", status);
         if (kategori !== "all") params.set("kategori", kategori);
@@ -463,6 +497,7 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
 
         tagIds.forEach((id) => params.append("tagId", id));
         tagTexts.forEach((t) => params.append("tagText", t));
+        selectedSchools.forEach((s) => params.append("school", s));
         if (juara) params.set("juara", juara);
 
         const res = await fetch(`/api/super-admin/talenta?${params.toString()}`, {
@@ -504,12 +539,13 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
 
     load();
     return () => controller.abort();
-  }, [page, search, scoreQ, status, kategori, jenisTalenta, tagIds, tagTexts, juara, reloadKey]);
+  }, [page, debouncedSearch, scoreQ, status, kategori, jenisTalenta, tagIds, tagTexts, juara, reloadKey, selectedSchools]);
 
   const paginationRange = useMemo(() => getPageWindow(page, totalPages, PAGEWINDOW), [page, totalPages]);
 
   function resetAll() {
     setSearch("");
+    setDebouncedSearch("");
     setScoreQ("");
     setStatus("all");
     setKategori("all");
@@ -519,7 +555,7 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
     setTagIds([]);
     setTagTexts([]);
     setScoreSort(undefined);
-
+    setSelectedSchools([]);
     setSelectedIds({});
     setLockedJenis(null);
   }
@@ -529,7 +565,7 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
 
     try {
       const params = new URLSearchParams();
-      if (search) params.set("q", search);
+      if (debouncedSearch) params.set("q", debouncedSearch);
       if (scoreQ) params.set("scoreQ", scoreQ);
       if (status !== "all") params.set("status", status);
       if (kategori !== "all") params.set("kategori", kategori);
@@ -590,6 +626,20 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
     if (names.length <= 2) return names.join(", ");
     return `${names.slice(0, 2).join(", ")} +${names.length - 2}`;
   }, [juara, tagIds, tagTexts, tagOthers]);
+
+  const tagSelectedSchools = useMemo(() => {
+    const names: string[] = [];
+
+    if (selectedSchools.length) {
+      names.push(schoolOptions.filter((s) => selectedSchools.includes(s.npsn)).map((s) => s.name).join(", "));
+    }
+
+    if (tagTexts.length) names.push(...tagTexts);
+
+    if (names.length === 0) return "Filter UPT";
+    if (names.length <= 2) return names.join(", ");
+    return `${names.slice(0, 2).join(", ")} +${names.length - 2}`;
+  }, [selectedSchools]);
 
   const sortedItems = useMemo(() => {
     if (!scoreSort || scoreSort === "default") return items;
@@ -662,7 +712,7 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
               <Search className="h-4 w-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
               <Input
                 className="pl-10"
-                placeholder="Cari GTK / Kegiatan / Sekolah..."
+                placeholder="Cari GTK / Kegiatan..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -815,6 +865,55 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
                     </Button>
                   </div>
                 ) : null}
+              </PopoverContent>
+            </Popover>
+
+            <Popover open={schoolOpen} onOpenChange={setSchoolOpen}>
+              <PopoverTrigger asChild>
+                <Button variant="outline" role="combobox" aria-expanded={schoolOpen} className="w-64 justify-between font-normal">
+                  <span className="truncate">{tagSelectedSchools}</span>
+                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+
+              <PopoverContent className="w-80 p-0" align="start">
+                <Command>
+                  <CommandInput placeholder="Cari UPT..." />
+                  <CommandList className="max-h-72 overflow-auto">
+                    <CommandEmpty>UPT tidak ditemukan.</CommandEmpty>
+
+                    <CommandGroup>
+                      {schoolOptions.map((t) => {
+                        const checked = selectedSchools.includes(t.npsn);
+                        return (
+                          <CommandItem
+                            key={t.npsn}
+                            value={t.name}
+                            onSelect={() => {
+                              setSelectedSchools((prev) => {
+                                const next = new Set(prev);
+                                if (next.has(t.npsn)) next.delete(t.npsn);
+                                else next.add(t.npsn);
+                                return Array.from(next);
+                              });
+                            }}
+                          >
+                            <Check className={cn("mr-2 h-4 w-4", checked ? "opacity-100" : "opacity-0")} />
+                            <span className="truncate">{t.name}</span>
+                          </CommandItem>
+                        );
+                      })}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+
+                {selectedSchools.length > 0 && (
+                  <div className="border-t p-2">
+                    <Button variant="ghost" className="w-full" onClick={() => setSelectedSchools([])}>
+                      Hapus filter tag
+                    </Button>
+                  </div>
+                )}
               </PopoverContent>
             </Popover>
 

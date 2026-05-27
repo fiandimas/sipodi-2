@@ -34,6 +34,7 @@ export async function GET(req: NextRequest) {
   const tagIds = searchParams.getAll("tagId").map((x) => x.trim()).filter(Boolean);
   const juara = (searchParams.get("juara") ?? "").trim();
   const tagTexts = searchParams.getAll("tagText").map((x) => x.trim()).filter(Boolean);
+  const schoolIds = searchParams.getAll("school").map((x) => x.trim()).filter(Boolean);
 
   const JUARA = new Set(["Juara 1", "Juara 2", "Juara 3"]);
   const juaraValue = JUARA.has(juara) ? juara : "";
@@ -80,6 +81,16 @@ export async function GET(req: NextRequest) {
           WHERE j."A" = ts."id"
             AND tg."name" IN (${Prisma.join(tagTextsFiltered)})
         )
+      )
+    `);
+  }
+
+  if (schoolIds.length > 0) {
+    conds.push(Prisma.sql`
+      ts."gtkNik" IN (
+        SELECT g."nik"
+        FROM "gtks" g
+        WHERE g."schoolNpsn" IN (${Prisma.join(schoolIds)})
       )
     `);
   }

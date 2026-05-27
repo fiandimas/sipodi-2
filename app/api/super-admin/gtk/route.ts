@@ -129,6 +129,7 @@ export async function GET(req: NextRequest) {
 
     const verifiedCountMap = new Map(verifiedAgg.map((c) => [c.gtkNik, c._count._all]));
     const scoreSumMap = new Map(scoredAgg.map((c) => [c.gtkNik, c._sum.computedScore ?? 0]));
+    const nameMap = new Map(allGtkNiks.map((g) => [g.nik, (g.name ?? "").toLowerCase()]));
 
     const sortedGtkNiks = [...gtkNiks].sort((a, b) => {
       if (sort === "talenta") {
@@ -137,9 +138,8 @@ export async function GET(req: NextRequest) {
         const diff = bv - av;
         if (diff !== 0) return orderDir === "desc" ? diff : -diff;
       } else if (sort === "name") {
-        const nameMap = new Map(allGtkNiks.map((g) => [g.nik, g.name ?? ""]));
-        const an = (nameMap.get(a) ?? "").toLowerCase();
-        const bn = (nameMap.get(b) ?? "").toLowerCase();
+        const an = nameMap.get(a) ?? "";
+        const bn = nameMap.get(b) ?? "";
         const cmp = an.localeCompare(bn, "id-ID");
         if (cmp !== 0) return orderDir === "desc" ? -cmp : cmp;
       } else {
@@ -149,9 +149,9 @@ export async function GET(req: NextRequest) {
         if (diff !== 0) return orderDir === "desc" ? diff : -diff;
       }
 
-      const nameMap = new Map(allGtkNiks.map((g) => [g.nik, g.name ?? ""]));
-      const an = (nameMap.get(a) ?? "").toLowerCase();
-      const bn = (nameMap.get(b) ?? "").toLowerCase();
+      // tiebreaker — nameMap sudah ada, langsung pakai
+      const an = nameMap.get(a) ?? "";
+      const bn = nameMap.get(b) ?? "";
       const cmpName = an.localeCompare(bn, "id-ID");
       if (cmpName !== 0) return cmpName;
 

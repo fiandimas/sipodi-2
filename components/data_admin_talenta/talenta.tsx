@@ -182,6 +182,12 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
   const [ttdNip, setTtdNip] = useState("");
   const [pendingMode, setPendingMode] = useState<null | "filter" | "selected">(null);
 
+  const [schoolOpen, setSchoolOpen] = useState(false);
+  const [schoolOptions, setSchoolOptions] = useState<{ npsn: string; name: string }[]>([]);
+  const [selectedSchools, setSelectedSchools] = useState<string[]>([]);
+
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
+
   function validateTtd() {
     const name = ttdName.trim();
     const nip = ttdNip.trim();
@@ -196,7 +202,7 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
     params.set("pageSize", String(ps));
     params.set("fieldId", fieldId);
 
-    if (search) params.set("q", search);
+    if (debouncedSearch) params.set("q", debouncedSearch);
     if (scoreQ) params.set("scoreQ", scoreQ);
 
     params.delete("status");
@@ -215,6 +221,7 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
     // TAG FILTER: kirim multi tagId
     tagIds.forEach((id) => params.append("tagId", id));
     tagTexts.forEach((t) => params.append("tagText", t));
+    selectedSchools.forEach((s) => params.append("school", s));
 
     if (juara) params.set("juara", juara);
 
@@ -407,7 +414,7 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
   // reset page kalau filter berubah (termasuk tagIds)
   useEffect(() => {
     setPage(1);
-  }, [search, scoreQ, status, kategori, jenisTalenta, tagIds, tagTexts, juara, scoreSort]);
+  }, [debouncedSearch, scoreQ, status, kategori, jenisTalenta, tagIds, tagTexts, juara, scoreSort]);
 
   // load opsi tag untuk dropdown (prioritas & lainnya)
   useEffect(() => {
@@ -415,7 +422,7 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
 
     async function loadTagOptions() {
       try {
-        const res = await fetch(`/api/admin-talenta/tags?fieldId=${fieldId}`, { cache: "no-store" });
+        const res = await fetch(`/api/admin-talenta/tags/${fieldId}`, { cache: "no-store" });
         const text = await res.text();
         console.log("TAGS", res.status, text);
         if (!res.ok) return;
@@ -433,6 +440,28 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
       cancelled = true;
     };
   }, [fieldId]);
+
+  useEffect(() => {
+      const loadSchoolOptions = async () => {
+      try {
+        const res = await fetch("/api/admin-talenta/school", {
+          cache: "no-store",
+          credentials: "include",
+        });
+        if (!res.ok) return;
+
+        const json = await res.json();
+        if (!Array.isArray(json?.data)) return;
+
+        const schools = json.data as { npsn: string; name: string }[];
+        setSchoolOptions(schools)
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  
+    loadSchoolOptions();
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -480,7 +509,15 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
 
     load();
     return () => controller.abort();
-  }, [page, search, scoreQ, status, kategori, jenisTalenta, fieldId, reloadKey, tagIds, tagTexts, juara, scoreSort]);
+  }, [page, debouncedSearch, scoreQ, status, kategori, jenisTalenta, fieldId, reloadKey, tagIds, tagTexts, juara, scoreSort, selectedSchools]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [search]);
 
   const paginationRange = useMemo(() => {
     if (totalPages <= 1) return [1];
@@ -558,12 +595,14 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
 
   const resetAll = () => {
     setSearch("");
+    setDebouncedSearch("");
     setScoreQ("");
     setStatus("all");
     setKategori("all");
     setJenisTalenta("all");
     setTagIds([]);
     setTagTexts([]);
+    setSelectedSchools([]);
     setJuara("");
     setScoreSort(undefined);
 
@@ -587,6 +626,20 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
     if (names.length <= 2) return names.join(", ");
     return `${names.slice(0, 2).join(", ")} +${names.length - 2}`;
   }, [juara, tagIds, tagOthers, tagTexts]);
+
+  const tagSelectedSchools = useMemo(() => {
+    const names: string[] = [];
+
+    if (selectedSchools.length) {
+      names.push(schoolOptions.filter((s) => selectedSchools.includes(s.npsn)).map((s) => s.name).join(", "));
+    }
+
+    if (tagTexts.length) names.push(...tagTexts);
+
+    if (names.length === 0) return "Filter UPT";
+    if (names.length <= 2) return names.join(", ");
+    return `${names.slice(0, 2).join(", ")} +${names.length - 2}`;
+  }, [selectedSchools]);
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-8 space-y-8">
@@ -653,7 +706,7 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               className="pl-10"
-              placeholder="Cari GTK / kegiatan / sekolah..."
+              placeholder="Cari GTK / kegiatan..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -811,6 +864,55 @@ export default function DataTalentaPage({ role, fieldId, initialPage }: Props) {
               ) : null}
             </PopoverContent>
           </Popover>
+
+          <Popover open={schoolOpen} onOpenChange={setSchoolOpen}>
+              <PopoverTrigger asChild>
+                <Button variant="outline" role="combobox" aria-expanded={schoolOpen} className="w-64 justify-between font-normal">
+                  <span className="truncate">{tagSelectedSchools}</span>
+                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+
+              <PopoverContent className="w-80 p-0" align="start">
+                <Command>
+                  <CommandInput placeholder="Cari UPT..." />
+                  <CommandList className="max-h-72 overflow-auto">
+                    <CommandEmpty>UPT tidak ditemukan.</CommandEmpty>
+
+                    <CommandGroup>
+                      {schoolOptions.map((t) => {
+                        const checked = selectedSchools.includes(t.npsn);
+                        return (
+                          <CommandItem
+                            key={t.npsn}
+                            value={t.name}
+                            onSelect={() => {
+                              setSelectedSchools((prev) => {
+                                const next = new Set(prev);
+                                if (next.has(t.npsn)) next.delete(t.npsn);
+                                else next.add(t.npsn);
+                                return Array.from(next);
+                              });
+                            }}
+                          >
+                            <Check className={cn("mr-2 h-4 w-4", checked ? "opacity-100" : "opacity-0")} />
+                            <span className="truncate">{t.name}</span>
+                          </CommandItem>
+                        );
+                      })}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+
+                {selectedSchools.length > 0 && (
+                  <div className="border-t p-2">
+                    <Button variant="ghost" className="w-full" onClick={() => setSelectedSchools([])}>
+                      Hapus filter tag
+                    </Button>
+                  </div>
+                )}
+              </PopoverContent>
+            </Popover>
 
           <Button variant="outline" onClick={resetAll}>
             Reset filter

@@ -11,6 +11,7 @@ import {
   X,
   Check,
   ChevronsUpDown,
+  Trash2,
 } from "lucide-react";
 
 import DashboardLayout from "@/components/dashboard-layout";
@@ -30,10 +31,23 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+
+// import
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
+
 import { cn } from "@/lib/utils";
 
 import CreateTalentaUserModal, { type CreateSubmissionResult } from "@/components/modals/create-talenta-user";
-import DetailTalentaUserModal, { type SubmissionItem } from "@/components/modals/detail-talenta-user";
+import DetailTalentaUserModal, { type SubmissionItem, type ResubmitData } from "@/components/modals/detail-talenta-user";
 
 type MeResponse = {
   gtk: {
@@ -215,6 +229,30 @@ export default function TalentaUserPage() {
 
   const [printCtx, setPrintCtx] = useState<PrintContext | null>(null);
   const [page, setPage] = useState(1);
+
+  // state
+  const [deleteTarget, setDeleteTarget] = useState<SubmissionItemWithScores | null>(null)
+
+  // handler
+  const handleDelete = async () => {
+    if (!deleteTarget) return;
+    if (deleteTarget.status !== "PENDING") return;
+    try {
+      console.log("Deleting", deleteTarget);
+
+      const res = await fetch(`/api/gtk/talent-submissions/${deleteTarget.id}`, {
+        method: "DELETE",
+      });
+
+      await loadData();
+    } catch (e) {
+      setDeleteTarget(null);
+      console.error(e);
+      alert("Gagal memuat data");
+    } finally {
+      setDeleteTarget(null);
+    }
+  }
 
   const esc = (v: any) =>
     String(v ?? "")
@@ -426,6 +464,30 @@ export default function TalentaUserPage() {
     setJuara("");
     setTagIds([]);
     setTagTexts([]);
+  };
+
+  const doResubmit = async (id: string, formData: ResubmitData): Promise<void> => {
+    if (!formData || !id) return;
+    
+    try {
+      const fd = new FormData();
+
+      if (formData.activityName.trim()) fd.set("activityName", formData.activityName.trim());
+      if (formData.organizer.trim()) fd.set("organizer", formData.organizer.trim());
+      if (formData.description.trim()) fd.set("description", formData.description.trim());
+      if (formData.linkPendukung.trim()) fd.set("linkPendukung", formData.linkPendukung.trim());
+      if (formData.newFile) fd.set("file", formData.newFile);
+  
+      const res = await fetch(`/api/gtk/talent-submissions/${id}/resubmit`, {
+        method: "POST",
+        body: fd,
+      });
+
+      setSelected(null);
+      await loadData();
+    } catch (error) {
+      console.error("Error resubmitting submission:", error);
+    }
   };
 
   const handlePrintSingle = (s: SubmissionItemWithScores) => {
@@ -906,6 +968,17 @@ export default function TalentaUserPage() {
                                 >
                                   <Printer className="h-4 w-4" strokeWidth={2.75} absoluteStrokeWidth />
                                 </Button>
+
+                                <Button
+                                  size="icon"
+                                  variant="outline"
+                                  className="border-red-400 text-red-400 hover:bg-red-50 hover:text-red-400 hover:border-red-400"
+                                  onClick={() => setDeleteTarget(s)}
+                                  title="Delete"
+                                  disabled={s.status !== "PENDING"}
+                                >
+                                  <Trash2 className="h-4 w-4" strokeWidth={2.75} absoluteStrokeWidth />
+                                </Button>
                               </div>
                             </TableCell>
                           </TableRow>
@@ -960,6 +1033,7 @@ export default function TalentaUserPage() {
         <DetailTalentaUserModal
           open={!!selected}
           onOpenChange={() => setSelected(null)}
+          onResubmit={doResubmit}
           submission={selected}
           photoUrl={me?.photoUrl ?? null}
           gtkName={me?.name ?? null}
@@ -974,6 +1048,26 @@ export default function TalentaUserPage() {
           }}
         />
       </div>
+
+      <AlertDialog open={!!deleteTarget} onOpenChange={(open) => !open && setDeleteTarget(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Hapus data ini?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Aksi ini tidak bisa dibatalkan.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Batal</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-red-500 hover:bg-red-600"
+              onClick={handleDelete}
+            >
+              Hapus
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </DashboardLayout>
   );
 }
