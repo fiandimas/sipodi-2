@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useDeferredValue, useCallback } from "react";
-import { Search, Plus, Edit, Trash2, Download, FileText } from "lucide-react";
+import { Search, Plus, Edit, Trash2, Download, FileText, ChevronsUpDown, Check  } from "lucide-react";
 import type { UserRole } from "@/lib/types/role";
 
 import DashboardLayout from "@/components/dashboard-layout";
@@ -18,8 +18,18 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "@/components/ui/command";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { toast } from "sonner";
 
 import type { GTK } from "@/lib/types/gtk";
@@ -28,6 +38,7 @@ import { EditGTKModal } from "@/components/modals/edit-gtk-modal";
 import { DeleteGTKModal } from "@/components/modals/delete-gtk-modal";
 
 import { openPrintWindow, printCtx, renderGtkPrintHtml, type GtkPrintItem, type TtdInput } from "@/lib/print-utils";
+import { cn } from "@/lib/utils";
 
 const PAGE_SIZE = 20;
 
@@ -137,6 +148,10 @@ export default function DataGTKPage({
   const [ttdNip, setTtdNip] = useState("");
   const [pendingMode, setPendingMode] = useState<null | "all" | "selected">(null);
 
+  const [schoolOpen, setSchoolOpen] = useState(false);
+  const [schoolOptions, setSchoolOptions] = useState<{ npsn: string; name: string }[]>([]);
+  const [selectedSchools, setSelectedSchools] = useState<string[]>([]);
+
   function validateTtd() {
     const name = ttdName.trim();
     const nip = ttdNip.trim();
@@ -166,6 +181,7 @@ export default function DataGTKPage({
       if (jenis !== "all") params.set("jenis", jenis);
       if (jenisKelamin !== "all") params.set("gender", jenisKelamin);
 
+      selectedSchools.forEach((s) => params.append("schoolNpsn", s));
       const res = await fetch(`/api/super-admin/gtk?${params.toString()}`, {
         cache: "no-store",
       });
@@ -204,7 +220,42 @@ export default function DataGTKPage({
     } finally {
       setLoading(false);
     }
-  }, [page, debouncedSearch, sekolah, jenis, jenisKelamin, activeSort, scoreDir, talentaDir]);
+  }, [page, debouncedSearch, sekolah, jenis, jenisKelamin, activeSort, scoreDir, talentaDir, selectedSchools]);
+
+  const tagSelectedSchools = useMemo(() => {
+    const names: string[] = [];
+
+    if (selectedSchools.length) {
+      names.push(schoolOptions.filter((s) => selectedSchools.includes(s.npsn)).map((s) => s.name).join(", "));
+    }
+
+    if (names.length === 0) return "Filter UPT";
+    if (names.length <= 2) return names.join(", ");
+    return `${names.slice(0, 2).join(", ")} +${names.length - 2}`;
+  }, [selectedSchools]);
+
+    // load school
+  const loadSchoolOptions = async () => {
+    try {
+      const res = await fetch("/api/super-admin/school", {
+        cache: "no-store",
+        credentials: "include",
+      });
+      if (!res.ok) return;
+
+      const json = await res.json();
+      if (!Array.isArray(json?.data)) return;
+
+      const schools = json.data as { npsn: string; name: string }[];
+      setSchoolOptions(schools)
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  useEffect(() => {
+    loadSchoolOptions();
+  }, []);
 
   useEffect(() => {
     loadData();
@@ -522,7 +573,7 @@ export default function DataGTKPage({
                 </SelectContent>
               </Select>
 
-              <Select value={sekolah} onValueChange={setSekolah}>
+              {/* <Select value={sekolah} onValueChange={setSekolah}>
                 <SelectTrigger className="w-56">
                   <SelectValue placeholder="Semua sekolah" />
                 </SelectTrigger>
@@ -534,7 +585,53 @@ export default function DataGTKPage({
                     </SelectItem>
                   ))}
                 </SelectContent>
-              </Select>
+              </Select> */}
+              <Popover open={schoolOpen} onOpenChange={setSchoolOpen}>
+                <PopoverTrigger asChild>
+                  <Button variant="outline" role="combobox" aria-expanded={schoolOpen} className="w-64 justify-between font-normal">
+                    <span className="truncate">{tagSelectedSchools}</span>
+                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  </Button>
+                </PopoverTrigger>
+
+                <PopoverContent className="w-80 p-0" align="start">
+                  <Command>
+                    <CommandInput placeholder="Cari UPT..." />
+                    <CommandList className="max-h-72 overflow-auto">
+                      <CommandEmpty>UPT tidak ditemukan.</CommandEmpty>
+
+                      <CommandGroup>
+                        {schoolOptions.map((t) => {
+                          const checked = selectedSchools.includes(t.npsn);
+                          return (
+                            <CommandItem
+                              key={t.npsn}
+                              value={t.name}
+                              onSelect={() => {
+                                setSelectedSchools(prev =>
+                                  prev.includes(t.npsn) ? [] : [t.npsn]
+                                );
+                                setSchoolOpen(false);
+                              }}
+                            >
+                              <Check className={cn("mr-2 h-4 w-4", checked ? "opacity-100" : "opacity-0")} />
+                              <span className="truncate">{t.name}</span>
+                            </CommandItem>
+                          );
+                        })}
+                      </CommandGroup>
+                    </CommandList>
+                  </Command>
+
+                  {selectedSchools.length > 0 && (
+                    <div className="border-t p-2">
+                      <Button variant="ghost" className="w-full" onClick={() => setSelectedSchools([])}>
+                        Hapus filter tag
+                      </Button>
+                    </div>
+                  )}
+                </PopoverContent>
+              </Popover>
 
               <Select value={jenisKelamin} onValueChange={setJenisKelamin}>
                 <SelectTrigger className="w-56">
@@ -562,6 +659,7 @@ export default function DataGTKPage({
 
                   setScoreDirUi(undefined);
                   setTalentaDirUi(undefined);
+                  setSelectedSchools([]);
                 }}
               >
                 Reset Filter

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Download, Eye, FileText, RotateCcw, Search, Check, ChevronsUpDown } from "lucide-react";
+import { Download, Eye, RotateCcw, Search, Check, ChevronsUpDown } from "lucide-react";
 import type { UserRole } from "@/lib/types/role";
 
 import DashboardLayout from "@/components/dashboard-layout";
@@ -633,8 +633,6 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
     if (selectedSchools.length) {
       names.push(schoolOptions.filter((s) => selectedSchools.includes(s.npsn)).map((s) => s.name).join(", "));
     }
-
-    if (tagTexts.length) names.push(...tagTexts);
 
     if (names.length === 0) return "Filter UPT";
     if (names.length <= 2) return names.join(", ");
