@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Download, Eye, RotateCcw, Search, Check, ChevronsUpDown } from "lucide-react";
+import { Download, Eye, RotateCcw, Search, Check, ChevronsUpDown, User } from "lucide-react";
 import type { UserRole } from "@/lib/types/role";
+import { useRouter } from "next/navigation";
 
 import DashboardLayout from "@/components/dashboard-layout";
 import { Button } from "@/components/ui/button";
@@ -141,6 +142,7 @@ function pushLainnyaToEndOption(arr: Option[]) {
 }
 
 export default function DataSuperAdminTalentaPage({ role, userName }: { role: UserRole; userName: string }) {
+  const router = useRouter();
   // filters
   const [search, setSearch] = useState("");
   const [scoreQ, setScoreQ] = useState("");
@@ -1071,19 +1073,31 @@ export default function DataSuperAdminTalentaPage({ role, userName }: { role: Us
                         </TableCell>
 
                         {/* Action */}
-                        <TableCell className="text-center">
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="border-primary text-primary"
-                            onClick={() => {
-                              setSelectedTalenta(t);
-                              setOpenDetail(true);
-                            }}
-                            title="Detail"
-                          >
-                            <Eye className="h-4 w-4" strokeWidth={2.75} absoluteStrokeWidth />
-                          </Button>
+                        <TableCell>
+                          <div className="flex justify-center gap-1">
+                            <Button
+                              size="icon"
+                              variant="outline"
+                              className="border-primary text-primary"
+                              onClick={() => {
+                                setSelectedTalenta(t);
+                                setOpenDetail(true);
+                              }}
+                              title="Detail"
+                            >
+                              <Eye className="h-4 w-4" strokeWidth={2.75} absoluteStrokeWidth />
+                            </Button>
+
+                            <Button
+                              size="icon"
+                              variant="outline"
+                              className="border-emerald-600 text-emerald-600"
+                              onClick={() => router.push(`/super-admin/data-talenta/${t.gtk?.nik}`)}
+                              title="Detail"
+                            >
+                              <User className="h-4 w-4 text-emerald-600" strokeWidth={2.75} absoluteStrokeWidth />
+                            </Button>
+                          </div>
                         </TableCell>
                       </TableRow>
                     );
