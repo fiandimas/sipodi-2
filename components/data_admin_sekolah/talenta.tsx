@@ -2,15 +2,16 @@
 
 import type { UserRole } from "@/lib/types/role";
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Download,
   Search as SearchIcon,
   Edit,
   RefreshCcw,
-  ListChecks,
   FileText,
   Check,
   ChevronsUpDown,
+  User,
 } from "lucide-react";
 
 import DashboardLayout from "@/components/dashboard-layout";
@@ -216,6 +217,8 @@ export default function DataTalentaPage({
   role: UserRole;
   userName: string;
 }) {
+  const router = useRouter();
+
   const [loading, setLoading] = useState(false);
   const [rows, setRows] = useState<SubmissionRowUI[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -1076,18 +1079,30 @@ export default function DataTalentaPage({
                         <TableCell className="whitespace-nowrap px-3 py-1 text-xs font-semibold">{statusBadge(ui)}</TableCell>
 
                         <TableCell className="text-center">
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            className="border-primary text-primary"
-                            onClick={() => {
-                              setSelected(t);
-                              setOpenVerifikasi(true);
-                            }}
-                            title="Verifikasi"
-                          >
-                            <Edit className="w-4 h-4" strokeWidth={2.75} absoluteStrokeWidth />
-                          </Button>
+                          <div className="flex justify-center gap-1">
+                            <Button
+                              size="icon"
+                              variant="outline"
+                              className="border-primary text-primary"
+                              onClick={() => {
+                                setSelected(t);
+                                setOpenVerifikasi(true);
+                              }}
+                              title="Verifikasi"
+                            >
+                              <Edit className="w-4 h-4" strokeWidth={2.75} absoluteStrokeWidth />
+                            </Button>
+
+                            <Button
+                              size="icon"
+                              variant="outline"
+                              className="border-emerald-600 text-emerald-600"
+                              onClick={() => router.push(`/admin-sekolah/data-talenta/${t.gtk?.nik}`)}
+                              title="Detail"
+                            >
+                              <User className="h-4 w-4 text-emerald-600" strokeWidth={2.75} absoluteStrokeWidth />
+                            </Button>
+                          </div>
                         </TableCell>
                       </TableRow>
                     );

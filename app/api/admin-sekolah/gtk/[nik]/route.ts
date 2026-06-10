@@ -12,6 +12,54 @@ function normStr(x: unknown): string | undefined {
   return t ? t : undefined;
 }
 
+export async function GET(req: NextRequest, { params }: Ctx) {
+  try {
+    const session = await getSession();
+    if (!session || session.role !== "ADMIN_SEKOLAH") {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { nik } = await params;
+    const nikTrim = normStr(nik);
+    if (!nikTrim) {
+      return NextResponse.json({ error: "NIK tidak ditemukan di URL." }, { status: 400 });
+    }
+
+    const gtk = await prisma.gtk.findUnique({
+      where: { nik: nikTrim, schoolNpsn: session.schoolNpsn ?? undefined },
+      select: {
+        nik: true,
+        name: true,
+        photoUrl: true,
+        school: { select: { npsn: true, name: true } },
+      },
+    });
+
+    if (gtk === null) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    return NextResponse.json({
+      gtk: {
+        nik: gtk?.nik ?? nikTrim,
+        name: gtk?.name ?? "-",
+        schoolName: gtk?.school?.name ?? "-",
+        photoUrl: gtk?.photoUrl ?? "/avatar.png",
+      },
+      session: {
+        role: session.role,
+        branchId: session.branchId ?? null,
+        schoolNpsn: gtk?.school?.npsn ?? session.schoolNpsn ?? null,
+        gtkNik: session.gtkNik,
+      },
+    });
+  } catch (e: any) {
+    console.error("GET /api/admin-sekolah/gtk/[nik] error:", e);
+
+    return NextResponse.json({ error: "Internal error" }, { status: 500 });
+  }
+}
+
 export async function PATCH(req: NextRequest, { params }: Ctx) {
   try {
     const session = await getSession();
