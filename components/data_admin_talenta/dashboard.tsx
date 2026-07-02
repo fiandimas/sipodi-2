@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { Presentation, User, Trophy, Users, Star } from "lucide-react";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
 import {
   Card,
@@ -62,6 +63,14 @@ const TALENT_TYPE_ORDER: Record<string, number> = {
   "Minat / Bakat / Lainnya": 5,
 };
 
+const iconMap: Record<string, { icon: React.ElementType; color: string }> = {
+  "Peserta (Pelatihan / Workshop / Seminar / Upskilling)": { icon: Presentation, color: "#3B82F6" },
+  "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)": { icon: User, color: "#2DD4BF" },
+  "Pembimbing Lomba": { icon: Trophy, color: "#F59E0B" },
+  "Peserta Lomba": { icon: Users, color: "#EC4899" },
+  "Minat / Bakat / Lainnya": { icon: Star, color: "#A855F7" },
+};
+
 function normalizeTalentTypeLabel(raw: string) {
   const s = (raw ?? "").trim().toLowerCase();
 
@@ -110,9 +119,21 @@ function XAxisTickWrap({
 }) {
   const value = String(payload?.value ?? "");
   const lines = wrapWords(value, 18);
+  const item = iconMap[value];
+  const Icon = item?.icon;
 
   return (
     <g transform={`translate(${x ?? 0},${y ?? 0})`}>
+      {Icon && (
+        <foreignObject x={-14} y={4} width={28} height={28}>
+          <div
+            className="w-7 h-7 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: `${item.color}20` }}
+          >
+            <Icon className="w-4 h-4" style={{ color: item.color }} />
+          </div>
+        </foreignObject>
+      )}
       <text
         x={0}
         y={0}
@@ -122,7 +143,7 @@ function XAxisTickWrap({
         fill="hsl(var(--muted-foreground))"
       >
         {lines.map((line, i) => (
-          <tspan key={i} x={0} dy={i === 0 ? 12 : 14}>
+          <tspan key={i} x={0} dy={i === 0 ? 40 : 14}>
             {line}
           </tspan>
         ))}
@@ -316,7 +337,7 @@ export default function DashboardClient() {
                       axisLine={false}
                       interval={0}
                       angle={-20}
-                      height={70}
+                      height={100}
                       textAnchor="end"
                     />
                     <YAxis tickLine={false} axisLine={false} />

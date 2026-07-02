@@ -95,6 +95,9 @@ const config: Config = {
         thin: '6px',
         'thumb-thin': '4px',
       },
+      fontFamily: {
+        murecho: ['Murecho', 'sans-serif'],
+      },
     },
   },
   plugins: [

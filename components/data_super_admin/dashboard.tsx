@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import type { UserRole } from "@/lib/types/role";
 
-import { Users, School, Award, BadgeCheck, Trophy } from "lucide-react";
+import { Presentation, User, Trophy, Users, Star } from "lucide-react";
 import {
   BarChart,
   Bar,
@@ -32,6 +32,11 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import type { ChartConfig } from "@/components/ui/chart";
+
+import SchoolIcon from "@/components/icons/SchoolIcon";
+import TalentaIcon from "@/components/icons/TalentaIcon";
+import VerifiedTalentaIcon from "@/components/icons/VerifiedTalentaIcon";
+import ApprovedTalentaIcon from "@/components/icons/ApprovedTalentaIcon";
 
 type DashboardResponse = {
   totalSchools: number;
@@ -111,6 +116,14 @@ const TALENT_TYPE_ORDER: Record<string, number> = {
   "Minat / Bakat / Lainnya": 5,
 };
 
+const iconMap: Record<string, { icon: React.ElementType; color: string }> = {
+  "Peserta (Pelatihan / Workshop / Seminar / Upskilling)": { icon: Presentation, color: "#3B82F6" },
+  "Narasumber / Ahli (Pelatihan / Workshop / Seminar / Upskilling)": { icon: User, color: "#2DD4BF" },
+  "Pembimbing Lomba": { icon: Trophy, color: "#F59E0B" },
+  "Peserta Lomba": { icon: Users, color: "#EC4899" },
+  "Minat / Bakat / Lainnya": { icon: Star, color: "#A855F7" },
+};
+
 function normalizeTalentTypeLabel(raw: string) {
   const s = (raw ?? "").trim().toLowerCase();
 
@@ -171,9 +184,21 @@ function XAxisTickWrap({
 }) {
   const value = String(payload?.value ?? "");
   const lines = wrapWords(value, 18);
+  const item = iconMap[value];
+  const Icon = item?.icon;
 
   return (
     <g transform={`translate(${x ?? 0},${y ?? 0})`}>
+      {Icon && (
+        <foreignObject x={-14} y={4} width={28} height={28}>
+          <div
+            className="w-7 h-7 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: `${item.color}20` }}
+          >
+            <Icon className="w-4 h-4" style={{ color: item.color }} />
+          </div>
+        </foreignObject>
+      )}
       <text
         x={0}
         y={0}
@@ -183,7 +208,7 @@ function XAxisTickWrap({
         fill="hsl(var(--muted-foreground))"
       >
         {lines.map((line, i) => (
-          <tspan key={i} x={0} dy={i === 0 ? 12 : 14}>
+          <tspan key={i} x={0} dy={i === 0 ? 40 : 14}>
             {line}
           </tspan>
         ))}
@@ -281,27 +306,32 @@ export default function DashboardClient({
       {
         label: "Total Sekolah",
         value: data ? data.totalSchools.toLocaleString("id-ID") : "-",
-        icon: School,
+        icon: SchoolIcon,
+        gradient: "linear-gradient(40deg, #7DC4FF, #0B7EDD)",
       },
       {
         label: "Total GTK",
         value: data ? data.totalGtks.toLocaleString("id-ID") : "-",
         icon: Users,
+        gradient: "linear-gradient(40deg, #34C759, #06B131)",
       },
       {
         label: "Total Talenta",
         value: data ? data.totalTalents.toLocaleString("id-ID") : "-",
-        icon: Award,
+        icon: TalentaIcon,
+        gradient: "linear-gradient(40deg, #8A38F5, #E538F5)",
       },
       {
         label: "Talenta Terverifikasi",
         value: data ? data.totalVerifiedTalents.toLocaleString("id-ID") : "-",
-        icon: BadgeCheck,
+        icon: VerifiedTalentaIcon,
+        gradient: "linear-gradient(40deg, #7DC4FF, #BCE1FF)",
       },
       {
         label: "Talenta Dinilai",
         value: data ? data.totalScoredTalents.toLocaleString("id-ID") : "-",
-        icon: Trophy,
+        icon: ApprovedTalentaIcon,
+        gradient: "linear-gradient(40deg, #FFEF45, #F6FF74)",
       },
     ];
   }, [data]);
@@ -329,11 +359,20 @@ export default function DashboardClient({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {metrics.map((metric, index) => (
             <Card key={index}>
-              <CardContent className="p-6">
-                <metric.icon className="w-6 h-6 mb-3 text-muted-foreground" />
-                <div className="text-2xl font-semibold">{metric.value}</div>
-                <div className="text-sm text-muted-foreground">
-                  {metric.label}
+              <CardContent className="p-6 flex gap-2">
+                <div>
+                  <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-3 text-white"
+                    style={{ background: metric.gradient }}
+                  >
+                    <metric.icon className="w-[39px] h-[39px]" />
+                  </div>
+                </div>
+
+                <div className="text-center w-full">
+                  <div className="text-4xl font-semibold font-murecho">{metric.value}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {metric.label}
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -370,7 +409,7 @@ export default function DashboardClient({
                           tickLine={false}
                           axisLine={false}
                           interval={0}
-                          height={60}
+                          height={100}
                           tick={<XAxisTickWrap />}
                         />
                         <YAxis tickLine={false} axisLine={false} />
